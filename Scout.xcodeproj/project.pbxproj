@@ -82,16 +82,16 @@
 		D30576D52158085400BE0AED /* Scout */ = {
 			isa = PBXGroup;
 			children = (
-				D30576F92158181200BE0AED /* GoogleService-Info.plist */,
-				D30576F6215812DB00BE0AED /* Networking */,
 				D30576EC21580B1400BE0AED /* Add */,
 				D30576D62158085400BE0AED /* AppDelegate.swift */,
+				D30576F92158181200BE0AED /* GoogleService-Info.plist */,
 				D30576E42158085F00BE0AED /* Info.plist */,
 				D30576EA21580B1000BE0AED /* Map */,
+				D30576F6215812DB00BE0AED /* Networking */,
+				D30576ED21580B1600BE0AED /* Projects */,
 				D30576EE21580B1800BE0AED /* Scouted */,
 				D30576EB21580B1300BE0AED /* Search */,
 				D30576EF21580D4C00BE0AED /* Supporting FIles */,
-				D30576ED21580B1600BE0AED /* Projects */,
 			);
 			path = Scout;
 			sourceTree = "<group>";
