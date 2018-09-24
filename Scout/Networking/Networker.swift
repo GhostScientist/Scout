@@ -10,5 +10,9 @@ import Foundation
 import Firebase
 
 final class Networker {
+    // Using the Singleton design pattern for the Networker.
     static let shared = Networker()
+    let database = Firestore.firestore()
+    
+    
 }
