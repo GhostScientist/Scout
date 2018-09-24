@@ -17,7 +17,7 @@
 		D30576F12158114300BE0AED /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30576F02158114300BE0AED /* AddViewController.swift */; };
 		D30576F32158121900BE0AED /* ProjectsCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30576F22158121900BE0AED /* ProjectsCollectionViewController.swift */; };
 		D30576F5215812D100BE0AED /* ScoutedCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30576F4215812D100BE0AED /* ScoutedCollectionViewController.swift */; };
-		D30576F8215812ED00BE0AED /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30576F7215812ED00BE0AED /* Networking.swift */; };
+		D30576F8215812ED00BE0AED /* Networker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30576F7215812ED00BE0AED /* Networker.swift */; };
 		D30576FA2158181200BE0AED /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D30576F92158181200BE0AED /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
@@ -35,7 +35,7 @@
 		D30576F02158114300BE0AED /* AddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
 		D30576F22158121900BE0AED /* ProjectsCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsCollectionViewController.swift; sourceTree = "<group>"; };
 		D30576F4215812D100BE0AED /* ScoutedCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoutedCollectionViewController.swift; sourceTree = "<group>"; };
-		D30576F7215812ED00BE0AED /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
+		D30576F7215812ED00BE0AED /* Networker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networker.swift; sourceTree = "<group>"; };
 		D30576F92158181200BE0AED /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		EF5FCEDB920FA88C3A9DA5EC /* Pods-Scout.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Scout.release.xcconfig"; path = "Pods/Target Support Files/Pods-Scout/Pods-Scout.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -149,7 +149,7 @@
 		D30576F6215812DB00BE0AED /* Networking */ = {
 			isa = PBXGroup;
 			children = (
-				D30576F7215812ED00BE0AED /* Networking.swift */,
+				D30576F7215812ED00BE0AED /* Networker.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -283,7 +283,7 @@
 				D30576D72158085400BE0AED /* AppDelegate.swift in Sources */,
 				D30576F12158114300BE0AED /* AddViewController.swift in Sources */,
 				D30576D92158085400BE0AED /* MapViewController.swift in Sources */,
-				D30576F8215812ED00BE0AED /* Networking.swift in Sources */,
+				D30576F8215812ED00BE0AED /* Networker.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

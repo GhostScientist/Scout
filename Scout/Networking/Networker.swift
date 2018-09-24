@@ -7,7 +7,8 @@
 //
 
 import Foundation
+import Firebase
 
-final class Networking {
-    
+final class Networker {
+    static let shared = Networker()
 }
