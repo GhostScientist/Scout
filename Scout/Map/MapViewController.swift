@@ -14,8 +14,17 @@ class MapViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        //let vc = storyboard?.instantiateViewController(withIdentifier: "Onboarding") as! OnboardViewController
-        //present(vc, animated: true)
+        
+    }
+    
+    var loginPresented = false
+    
+    override func viewDidAppear(_ animated: Bool) {
+        if !loginPresented {
+            let vc = storyboard?.instantiateViewController(withIdentifier: "Onboarding") as! OnboardViewController
+            loginPresented = true
+            present(vc, animated: true)
+        }
     }
 
 

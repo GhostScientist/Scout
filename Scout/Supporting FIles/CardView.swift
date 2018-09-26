@@ -43,10 +43,10 @@ class CardView: UIView {
         containerView.translatesAutoresizingMaskIntoConstraints = false
         
         // pin the containerView to the edges to the view
-        containerView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
-        containerView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
-        containerView.topAnchor.constraint(equalTo: topAnchor).isActive = true
-        containerView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+//        containerView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
+//        containerView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
+//        containerView.topAnchor.constraint(equalTo: topAnchor).isActive = true
+//        containerView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
     }
 }
 

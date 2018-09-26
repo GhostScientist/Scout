@@ -15,4 +15,27 @@ final class Networker {
     let database = Firestore.firestore()
     // Test to see if Git works properly now.
     
+    func postToFirebase(_ spot: Spot) {
+        
+    }
+    
+    func deleteFromFirebase(_ spot: Spot) {
+        
+    }
+    
+    func getFromFirebase(_ spot: Spot) {
+        
+    }
+    
+    func updateDataFor(_ spot: Spot) {
+        
+    }
+    
+    func grabContributedPhotosFor(_ userID: String) {
+        
+    }
+    
+    func getSavedPhotosFor(_ userID: String) {
+        
+    }
 }

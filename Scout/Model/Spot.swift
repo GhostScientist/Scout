@@ -6,7 +6,6 @@
 //  Copyright © 2018 theghost. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
 struct Spot {
