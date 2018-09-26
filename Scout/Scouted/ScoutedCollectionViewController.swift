@@ -11,6 +11,11 @@ import UIKit
 private let reuseIdentifier = "Cell"
 
 class ScoutedCollectionViewController: UICollectionViewController {
+    
+    // MARK: - Properties
+    var selectedSource = [Spot]()
+    var contributedSpots: [Spot]?
+    var savedSpots: [Spot]?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,13 +43,13 @@ class ScoutedCollectionViewController: UICollectionViewController {
 
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        return 0
+        return selectedSource.count
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -85,5 +90,21 @@ class ScoutedCollectionViewController: UICollectionViewController {
     
     }
     */
+    
+    // MARK: - IB Actions
+    @IBAction func sourceSwitchTapped(_ sender: UISegmentedControl) {
+        switch sender.selectedSegmentIndex {
+        case 0:
+            if let contributions = contributedSpots {
+                self.selectedSource = contributions
+            }
+        case 1:
+            if let scouted = savedSpots {
+                self.selectedSource = scouted
+            }
+        default:
+            return
+        }
+    }
 
 }
