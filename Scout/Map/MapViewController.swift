@@ -20,11 +20,11 @@ class MapViewController: UIViewController {
     var loginPresented = false
     
     override func viewDidAppear(_ animated: Bool) {
-        if !loginPresented {
-            let vc = storyboard?.instantiateViewController(withIdentifier: "Onboarding") as! OnboardViewController
-            loginPresented = true
-            present(vc, animated: true)
-        }
+//        if !loginPresented {
+//            let vc = storyboard?.instantiateViewController(withIdentifier: "Onboarding") as! OnboardViewController
+//            loginPresented = true
+//            present(vc, animated: true)
+//        }
     }
 
 

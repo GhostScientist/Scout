@@ -15,6 +15,14 @@ class ProjectsTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupUI()
+    }
+    
+    // MARK: - UI Methods
+    
+    func setupUI() {
+        title = "Projects"
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(createNewProject))
     }
 
     // MARK: - Table view data source
@@ -67,5 +75,25 @@ extension ProjectsTableViewController: UICollectionViewDelegate, UICollectionVie
         cell.backgroundColor = model[collectionView.tag][indexPath.item]
         
         return cell
+    }
+}
+
+extension ProjectsTableViewController {
+    @objc func createNewProject() {
+        let ac = UIAlertController(title: "Create Project", message: nil, preferredStyle: .alert)
+        ac.addTextField { (textField) in
+            textField.placeholder = "Enter your project name"
+        }
+        
+        let saveOption = UIAlertAction(title: "Create", style: .default) { (action) in
+            print("User tapped saved.")
+        }
+        let cancelOption = UIAlertAction(title: "Cancel", style: .cancel) { (action) in
+            print("User tapped cancel.")
+        }
+        
+        ac.addAction(saveOption)
+        ac.addAction(cancelOption)
+        present(ac, animated: true)
     }
 }

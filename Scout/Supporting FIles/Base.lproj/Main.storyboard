@@ -49,10 +49,25 @@
                     <view key="view" contentMode="scaleToFill" id="TKb-da-Fmg">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a5t-8C-ZOp">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="a5t-8C-ZOp" firstAttribute="top" secondItem="TKb-da-Fmg" secondAttribute="top" id="3ID-0j-SLw"/>
+                            <constraint firstItem="a5t-8C-ZOp" firstAttribute="leading" secondItem="TKb-da-Fmg" secondAttribute="leading" id="It8-Yd-WcI"/>
+                            <constraint firstItem="bBx-zw-mHG" firstAttribute="top" secondItem="a5t-8C-ZOp" secondAttribute="bottom" id="XQe-1x-HkS"/>
+                            <constraint firstAttribute="trailing" secondItem="a5t-8C-ZOp" secondAttribute="trailing" id="qNu-Gc-xhi"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Add" id="pwK-Gh-MH5"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="cameraPreviewView" destination="a5t-8C-ZOp" id="e42-rm-V2l"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wV2-tu-ZYP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -215,7 +230,7 @@
                         <segue destination="9pv-A4-QxB" kind="relationship" relationship="viewControllers" id="u7Y-xg-7CH"/>
                         <segue destination="8rJ-Kc-sve" kind="relationship" relationship="viewControllers" id="wH7-oq-Mml"/>
                         <segue destination="RRO-V1-kak" kind="relationship" relationship="viewControllers" id="XEP-bm-f0c"/>
-                        <segue destination="Aqv-Z8-rEs" kind="relationship" relationship="viewControllers" id="v8v-nw-ZYf"/>
+                        <segue destination="zaU-4D-K5S" kind="relationship" relationship="viewControllers" id="v8v-nw-ZYf"/>
                         <segue destination="kRs-uE-3YM" kind="relationship" relationship="viewControllers" id="fuM-5e-hLL"/>
                     </connections>
                 </tabBarController>
@@ -223,7 +238,7 @@
             </objects>
             <point key="canvasLocation" x="-3126.0869565217395" y="286.60714285714283"/>
         </scene>
-        <!--Projects-->
+        <!--Projects Table View Controller-->
         <scene sceneID="NDy-og-Rj1">
             <objects>
                 <tableViewController id="Aqv-Z8-rEs" customClass="ProjectsTableViewController" customModule="Scout" customModuleProvider="target" sceneMemberID="viewController">
@@ -277,11 +292,11 @@
                             <outlet property="delegate" destination="Aqv-Z8-rEs" id="TFM-bn-vM1"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Projects" id="ags-Id-Gg7"/>
+                    <navigationItem key="navigationItem" id="nto-co-dzd"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rBW-LO-RMV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3121.739130434783" y="1048.6607142857142"/>
+            <point key="canvasLocation" x="-1022" y="1088"/>
         </scene>
         <!--Scouted-->
         <scene sceneID="f0E-qB-Sc7">
@@ -319,6 +334,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xq9-5u-PdF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-5104.347826086957" y="286.60714285714283"/>
+        </scene>
+        <!--Projects-->
+        <scene sceneID="ZCn-cP-oUf">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="zaU-4D-K5S" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Projects" id="ags-Id-Gg7"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="xO1-cS-M0y">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Aqv-Z8-rEs" kind="relationship" relationship="rootViewController" id="1IM-fU-nhq"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mgT-7G-NUb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2158" y="1088"/>
         </scene>
     </scenes>
     <resources>

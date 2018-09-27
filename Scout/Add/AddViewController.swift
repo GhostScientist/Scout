@@ -7,13 +7,41 @@
 //
 
 import UIKit
+import AVFoundation
 
 class AddViewController: UIViewController {
+    
+    // MARK: - IB Outlets
+    @IBOutlet weak var cameraPreviewView: UIView!
+    
+    // MARK: - Instance Variables
+    var captureSession: AVCaptureSession?
+    var videoPreviewLayer: AVCaptureVideoPreviewLayer?
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        cameraSetup()
         // Do any additional setup after loading the view.
+    }
+    
+    func cameraSetup() {
+        let captureDevice = AVCaptureDevice.default(for: AVMediaType.video)
+        
+        do {
+            let input = try AVCaptureDeviceInput(device: captureDevice!)
+            captureSession = AVCaptureSession()
+            captureSession?.addInput(input)
+        } catch {
+            print(error)
+        }
+        
+        videoPreviewLayer = AVCaptureVideoPreviewLayer(session: captureSession!)
+        videoPreviewLayer?.videoGravity = AVLayerVideoGravity.resizeAspectFill
+        videoPreviewLayer?.frame = view.layer.bounds
+        cameraPreviewView.layer.addSublayer(videoPreviewLayer!)
+        
+        captureSession?.startRunning()
     }
     
 
