@@ -23,7 +23,7 @@ class OnboardViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let cardView = CardView()
+        //let cardView = CardView()
         print("How's it going?")
         // Do any additional setup after loading the view.
     }

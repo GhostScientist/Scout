@@ -8,6 +8,8 @@
 
 import UIKit
 import AVFoundation
+import CoreLocation
+import Firebase
 
 class AddViewController: UIViewController {
     
@@ -17,11 +19,18 @@ class AddViewController: UIViewController {
     // MARK: - Instance Variables
     var captureSession: AVCaptureSession?
     var videoPreviewLayer: AVCaptureVideoPreviewLayer?
-    
+    var capturePhotoOuput: AVCapturePhotoOutput?
+    var locationManager = CLLocationManager()
+    var userLocation: CLLocation?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         cameraSetup()
+        
+        capturePhotoOuput = AVCapturePhotoOutput()
+        capturePhotoOuput?.isHighResolutionCaptureEnabled = true
+        captureSession?.addOutput(capturePhotoOuput!)
+        userLocation = locationManager.location
         // Do any additional setup after loading the view.
     }
     
@@ -54,5 +63,32 @@ class AddViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    // MARK: - IB Action
+    @IBAction func onTapPostDummy(_ sender: UIButton) {
+        guard let capturePhotoOutput = self.capturePhotoOuput else { return }
+        
+        let photoSettings = AVCapturePhotoSettings()
+        photoSettings.isHighResolutionPhotoEnabled = true
+        photoSettings.isAutoStillImageStabilizationEnabled = true
+        photoSettings.flashMode = .auto
+        
+        capturePhotoOutput.capturePhoto(with: photoSettings, delegate: self)
+    }
+}
+
+extension AddViewController : AVCapturePhotoCaptureDelegate {
+    func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
+        let image = photo.fileDataRepresentation()
+        let imgManager = ImageManager()
+        if let imageData = image {
+            imgManager.upload(imageData)
+        }
+        let url = imgManager.getURLFor(Storage.storage().reference().child("dummy.jpg"))
+        var spot = Spot(locationName: "Dummy", description: "Dummy", tags: ["Dummy"], lat: (userLocation?.coordinate.latitude)!, long: (userLocation?.coordinate.longitude)!, photosURL: [""])
+        print(spot.photosURL[0])
+        let networker = Networker()
+        networker.postToFirebase(spot)
+    }
 
 }

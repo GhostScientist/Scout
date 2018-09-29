@@ -24,6 +24,7 @@
 		D30C5C0F215BA3580087B245 /* ProjectsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30C5C0E215BA3580087B245 /* ProjectsTableViewController.swift */; };
 		D30C5C11215BA4670087B245 /* ProjectsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30C5C10215BA4670087B245 /* ProjectsTableViewCell.swift */; };
 		D30C5C13215BAD740087B245 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30C5C12215BAD740087B245 /* Helper.swift */; };
+		D34E5ED6215F5C1200432DB1 /* ImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34E5ED5215F5C1200432DB1 /* ImageManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +48,7 @@
 		D30C5C0E215BA3580087B245 /* ProjectsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsTableViewController.swift; sourceTree = "<group>"; };
 		D30C5C10215BA4670087B245 /* ProjectsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProjectsTableViewCell.swift; path = Scout/Projects/ProjectsTableViewCell.swift; sourceTree = SOURCE_ROOT; };
 		D30C5C12215BAD740087B245 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
+		D34E5ED5215F5C1200432DB1 /* ImageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageManager.swift; sourceTree = "<group>"; };
 		EF5FCEDB920FA88C3A9DA5EC /* Pods-Scout.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Scout.release.xcconfig"; path = "Pods/Target Support Files/Pods-Scout/Pods-Scout.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -165,6 +167,7 @@
 			isa = PBXGroup;
 			children = (
 				D30576F7215812ED00BE0AED /* Networker.swift */,
+				D34E5ED5215F5C1200432DB1 /* ImageManager.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -271,6 +274,7 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Scout/Pods-Scout-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/BoringSSL-GRPC/openssl.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC/GRPCClient.framework",
@@ -283,6 +287,7 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GRPCClient.framework",
@@ -334,6 +339,7 @@
 				D30576D92158085400BE0AED /* MapViewController.swift in Sources */,
 				D30576F8215812ED00BE0AED /* Networker.swift in Sources */,
 				D30C5C13215BAD740087B245 /* Helper.swift in Sources */,
+				D34E5ED6215F5C1200432DB1 /* ImageManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

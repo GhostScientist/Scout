@@ -7,12 +7,13 @@
 //
 
 import UIKit
+import CoreLocation
 
 struct Spot {
     var locationName: String
     var description: String
     var tags: [String]
-    var lat: Double
-    var long: Double
-    var photos: [UIImage]
+    var lat: CLLocationDegrees
+    var long: CLLocationDegrees
+    var photosURL: [String]
 }

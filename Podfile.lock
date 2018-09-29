@@ -13,6 +13,9 @@ PODS:
   - Firebase/Firestore (5.4.0):
     - Firebase/CoreOnly
     - FirebaseFirestore (= 0.12.5)
+  - Firebase/Storage (5.4.0):
+    - Firebase/CoreOnly
+    - FirebaseStorage (= 3.0.0)
   - FirebaseAnalytics (5.0.1):
     - FirebaseCore (~> 5.0)
     - FirebaseInstanceID (~> 3.0)
@@ -35,6 +38,9 @@ PODS:
     - Protobuf (~> 3.1)
   - FirebaseInstanceID (3.1.1):
     - FirebaseCore (~> 5.0)
+  - FirebaseStorage (3.0.0):
+    - FirebaseCore (~> 5.0)
+    - GTMSessionFetcher/Core (~> 1.1)
   - GoogleToolboxForMac/Defines (2.1.4)
   - "GoogleToolboxForMac/NSData+zlib (2.1.4)":
     - GoogleToolboxForMac/Defines (= 2.1.4)
@@ -59,6 +65,7 @@ PODS:
   - gRPC/Main (1.15.0):
     - gRPC-Core (= 1.15.0)
     - gRPC-RxLibrary (= 1.15.0)
+  - GTMSessionFetcher/Core (1.2.0)
   - leveldb-library (1.20)
   - nanopb (0.3.8):
     - nanopb/decode (= 0.3.8)
@@ -70,6 +77,7 @@ PODS:
 DEPENDENCIES:
   - Firebase/Core
   - Firebase/Firestore
+  - Firebase/Storage
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -79,11 +87,13 @@ SPEC REPOS:
     - FirebaseCore
     - FirebaseFirestore
     - FirebaseInstanceID
+    - FirebaseStorage
     - GoogleToolboxForMac
     - gRPC
     - gRPC-Core
     - gRPC-ProtoRPC
     - gRPC-RxLibrary
+    - GTMSessionFetcher
     - leveldb-library
     - nanopb
     - Protobuf
@@ -95,15 +105,17 @@ SPEC CHECKSUMS:
   FirebaseCore: 42b3267233bd21a5abd54117ccc38ca3dd0f8e83
   FirebaseFirestore: b041e4a94601e18e82a863e0dcfa9d3e55cc2031
   FirebaseInstanceID: f3f0657372592ecdfdfe2cac604a5a75758376a6
+  FirebaseStorage: 7ca4bb7b58a25fa647b04f524033fc7cb7eb272b
   GoogleToolboxForMac: 91c824d21e85b31c2aae9bb011c5027c9b4e738f
   gRPC: d30ff914108c3a4f839e5a93adf70461f3ecbce7
   gRPC-Core: 96b2b7e7dcc5ece02e2d4fed30919eb9a2800517
   gRPC-ProtoRPC: d5bbb8b854889b7ec3a9b84aeccc08e639e98b77
   gRPC-RxLibrary: 99199a2405838e59ac37eed2121c793633878803
+  GTMSessionFetcher: 0c4baf0a73acd0041bf9f71ea018deedab5ea84e
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
   Protobuf: 1eb9700044745f00181c136ef21b8ff3ad5a0fd5
 
-PODFILE CHECKSUM: 55103ebf89359b422b5d5fbb2fd9a9c908be8990
+PODFILE CHECKSUM: 65e1ad587c62b96eda27da0140d9137a17315ea5
 
 COCOAPODS: 1.5.3

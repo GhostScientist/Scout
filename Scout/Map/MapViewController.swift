@@ -10,7 +10,6 @@ import UIKit
 import MapKit
 import CoreLocation
 
-
 final class cityAnnotation: NSObject, MKAnnotation {
     var coordinate: CLLocationCoordinate2D
     var title: String?
@@ -19,6 +18,7 @@ final class cityAnnotation: NSObject, MKAnnotation {
         self.coordinate = coordinate
         self.title = title
         super.init()  // initialise super class
+        
     }
         
     var region: MKCoordinateRegion {
@@ -43,12 +43,17 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         locationManager.requestWhenInUseAuthorization()
+        setUpLocationServices()
+    }
+    
+    func setUpLocationServices() {
         locationManager.delegate = self
         userLocation = locationManager.location
         let currentCoordinate = CLLocationCoordinate2D(latitude: userLocation!.coordinate.latitude, longitude: userLocation!.coordinate.longitude)
         let locationAnnotation = cityAnnotation(coordinate: currentCoordinate, title: "Current Location")
         mapView.addAnnotation(locationAnnotation)
         mapView.setRegion(locationAnnotation.region, animated: true)
+        mapView.isScrollEnabled = false
     }
     
     var loginPresented = false

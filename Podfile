@@ -8,5 +8,7 @@ target 'Scout' do
   # Pods for Scout
 pod 'Firebase/Core'
 pod 'Firebase/Firestore'
+pod 'Firebase/Storage'
 
 end
+

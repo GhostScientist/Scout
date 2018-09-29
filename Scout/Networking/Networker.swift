@@ -16,7 +16,20 @@ final class Networker {
     // Test to see if Git works properly now.
     
     func postToFirebase(_ spot: Spot) {
-        
+        database.collection("Dummy").document("Test").setData([
+            "locationName": spot.locationName,
+            "description": spot.description,
+            "tags": spot.tags,
+            "lat": spot.lat,
+            "long": spot.long,
+            "photosURL": spot.photosURL
+            ]) { err in
+            if let err = err {
+                print("Error writing document: \(err)")
+            } else {
+                print("Document successfully written!")
+            }
+        }
     }
     
     func deleteFromFirebase(_ spot: Spot) {
@@ -27,8 +40,17 @@ final class Networker {
         
     }
     
-    func updateDataFor(_ spot: Spot) {
-        
+    func updateDataFor(_ url: String) {
+        let dummyRef = database.collection("Dummy").document("Test")
+        dummyRef.updateData([
+            "photosURL": [url]
+        ]) { err in
+            if let err = err {
+                print("Error updating document: \(err)")
+            } else {
+                print("Document successfully updated")
+            }
+        }
     }
     
     func grabContributedPhotosFor(_ userID: String) {
@@ -38,4 +60,6 @@ final class Networker {
     func getSavedPhotosFor(_ userID: String) {
         
     }
+    
+    
 }
