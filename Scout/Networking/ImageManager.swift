@@ -10,6 +10,9 @@ import Foundation
 import Firebase
 
 class ImageManager {
+    
+    // TODO: - Implement proper Storage algorithm.
+    
     let storage = Storage.storage()
     let storageDummyReference = Storage.storage().reference().child("dummy.jpg")
     

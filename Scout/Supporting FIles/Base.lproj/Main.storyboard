@@ -68,11 +68,27 @@
                                     <action selector="onTapPostDummy:" destination="RRO-V1-kak" eventType="touchUpInside" id="wiy-xw-ftA"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dWV-28-Rr3">
+                                <rect key="frame" x="100" y="621" width="214" height="46"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="46" id="2cl-L4-0sq"/>
+                                    <constraint firstAttribute="width" constant="214" id="Q0B-Hk-Zfy"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                <state key="normal" title="Grab Data">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="grabData:" destination="RRO-V1-kak" eventType="touchUpInside" id="IB8-0T-ZIQ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="a5t-8C-ZOp" firstAttribute="top" secondItem="TKb-da-Fmg" secondAttribute="top" id="3ID-0j-SLw"/>
                             <constraint firstItem="a5t-8C-ZOp" firstAttribute="leading" secondItem="TKb-da-Fmg" secondAttribute="leading" id="It8-Yd-WcI"/>
+                            <constraint firstItem="dWV-28-Rr3" firstAttribute="centerX" secondItem="TKb-da-Fmg" secondAttribute="centerX" id="Jqq-k8-4ia"/>
+                            <constraint firstItem="59p-Es-gqL" firstAttribute="top" secondItem="dWV-28-Rr3" secondAttribute="bottom" constant="50" id="UUJ-fx-aFc"/>
                             <constraint firstItem="bBx-zw-mHG" firstAttribute="top" secondItem="a5t-8C-ZOp" secondAttribute="bottom" id="XQe-1x-HkS"/>
                             <constraint firstItem="59p-Es-gqL" firstAttribute="leading" secondItem="TKb-da-Fmg" secondAttribute="leading" constant="100" id="YuZ-ev-U3C"/>
                             <constraint firstItem="bBx-zw-mHG" firstAttribute="top" secondItem="59p-Es-gqL" secondAttribute="bottom" constant="50" id="m4X-Og-FEg"/>

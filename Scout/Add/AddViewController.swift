@@ -75,6 +75,12 @@ class AddViewController: UIViewController {
         
         capturePhotoOutput.capturePhoto(with: photoSettings, delegate: self)
     }
+    
+    @IBAction func grabData(_ sender: UIButton) {
+        Networker.shared.pullPublicSpots()
+    }
+    
+    
 }
 
 extension AddViewController : AVCapturePhotoCaptureDelegate {
@@ -84,9 +90,11 @@ extension AddViewController : AVCapturePhotoCaptureDelegate {
         if let imageData = image {
             imgManager.upload(imageData)
         }
+        
+        // FIX: - Use serial queue.
         let url = imgManager.getURLFor(Storage.storage().reference().child("dummy.jpg"))
-        var spot = Spot(locationName: "Dummy", description: "Dummy", tags: ["Dummy"], lat: (userLocation?.coordinate.latitude)!, long: (userLocation?.coordinate.longitude)!, photosURL: [""])
-        print(spot.photosURL[0])
+        var spot = Spot(locationName: "Dummy", description: "Dummy", tags: ["Dummy"], lat: (userLocation?.coordinate.latitude)!, long: (userLocation?.coordinate.longitude)!, photosURL: "")
+        print(spot.photosURL)
         let networker = Networker()
         networker.postToPublicFirebase(spot)
     }

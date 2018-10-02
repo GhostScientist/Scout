@@ -8,6 +8,7 @@
 
 import Foundation
 import Firebase
+import CoreLocation
 
 final class Networker {
     // Using the Singleton design pattern for the Networker.
@@ -62,7 +63,21 @@ final class Networker {
     }
     
     func pullPublicSpots() -> [Spot] {
-        let spot = Spot(locationName: "Dummy", description: "Dummy", tags: ["Dummy"], lat: (userLocation?.coordinate.latitude)!, long: (userLocation?.coordinate.longitude)!, photosURL: [""])
+        let spot = Spot(locationName: "Dummy", description: "Dummy", tags: ["Dummy"], lat: CLLocationDegrees(), long: CLLocationDegrees(), photosURL: "")
+        
+       
+        
+        database.collection("public").getDocuments { (querySnapshot, error) in
+            if let err = error {
+                print("Error retrieving public data: \(err)")
+            } else {
+                for document in querySnapshot!.documents {
+                    print("\(document.documentID) => \(document.data())")
+                }
+            }
+        }
+        
+        
         return [spot]
     }
     
