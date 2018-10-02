@@ -10,12 +10,18 @@ import UIKit
 
 private let reuseIdentifier = "Cell"
 
-class ScoutedCollectionViewController: UICollectionViewController {
+class ScoutedCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
+    
+    // Implement pre-fetching & caching to ensure smooth user experience.
+    // TODO: - Research XIBs. I think it would be a good idea to create a XIB
+    // that shows the picture in a square aspect ratio with the distance at the bottom.
+    
+    @IBOutlet weak var segmentControl: UISegmentedControl!
     
     // MARK: - Properties
-    var selectedSource = [Spot]()
-    var contributedSpots: [Spot]?
-    var savedSpots: [Spot]?
+    var selectedSource = generateRandomData()
+    var contributedSpots = generateRandomData()
+    var savedSpots = generateRandomData()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,17 +55,45 @@ class ScoutedCollectionViewController: UICollectionViewController {
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        return selectedSource.count
+        if segmentControl.selectedSegmentIndex == 0 {
+            return contributedSpots[0].count
+        } else if segmentControl.selectedSegmentIndex == 1 {
+            return savedSpots[0].count
+        }
+        return 1
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
-    
+        cell.backgroundColor = selectedSource[0][indexPath.row]
         // Configure the cell
     
         return cell
     }
+    
+    // MARK: - UICollectionViewDelegateFlowLayout Methods
+    
+    // TODO: - Implement spacing between cells.
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let width = collectionView.bounds.width/3.0
+        let yourHeight = width
+        
+        return CGSize(width: width, height: yourHeight)
+    }
 
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets.zero
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
+    }
+    
     // MARK: UICollectionViewDelegate
 
     /*
@@ -92,19 +126,10 @@ class ScoutedCollectionViewController: UICollectionViewController {
     */
     
     // MARK: - IB Actions
+    
+    // FIX: - Switching data source crashes app
     @IBAction func sourceSwitchTapped(_ sender: UISegmentedControl) {
-        switch sender.selectedSegmentIndex {
-        case 0:
-            if let contributions = contributedSpots {
-                self.selectedSource = contributions
-            }
-        case 1:
-            if let scouted = savedSpots {
-                self.selectedSource = scouted
-            }
-        default:
-            return
-        }
+        // Depending on the selected source, the collection view will populate with the corresponding content.
+        self.collectionView.reloadData()
     }
-
 }

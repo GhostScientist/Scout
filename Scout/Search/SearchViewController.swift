@@ -10,10 +10,13 @@ import UIKit
 
 class SearchViewController: UIViewController, UITextFieldDelegate {
     
+    // Users will be able to search based on tags.
+    // For example, if they lived on the North Shore of MA and searched for
+    // #spooky then they might be presented with the Willows or the Hawthorne hotel.
+    
     // MARK: - IB Outlets
+    // TODO: - Get TextField to dismiss when return is tapped; App 
     @IBOutlet weak var searchTextField: UITextField!
-    
-    
 
     override func viewDidLoad() {
         super.viewDidLoad()

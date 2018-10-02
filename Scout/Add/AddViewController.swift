@@ -80,7 +80,7 @@ class AddViewController: UIViewController {
 extension AddViewController : AVCapturePhotoCaptureDelegate {
     func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
         let image = photo.fileDataRepresentation()
-        let imgManager = ImageManager()
+        var imgManager = ImageManager()
         if let imageData = image {
             imgManager.upload(imageData)
         }
@@ -88,7 +88,7 @@ extension AddViewController : AVCapturePhotoCaptureDelegate {
         var spot = Spot(locationName: "Dummy", description: "Dummy", tags: ["Dummy"], lat: (userLocation?.coordinate.latitude)!, long: (userLocation?.coordinate.longitude)!, photosURL: [""])
         print(spot.photosURL[0])
         let networker = Networker()
-        networker.postToFirebase(spot)
+        networker.postToPublicFirebase(spot)
     }
 
 }

@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 
 class CardView: UIView {
+    // TODO: - Create a rounded-card view for both the login and signup page.
     let containerView = UIView()
     let cornerRadius: CGFloat = 6.0
     

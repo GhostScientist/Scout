@@ -8,6 +8,8 @@
 
 import UIKit
 
+// Temporary files to populate the collection view.
+
 func generateRandomData() -> [[UIColor]] {
     let numberOfRows = 20
     let numberOfItemsPerRow = 15

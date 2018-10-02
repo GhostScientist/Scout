@@ -12,6 +12,7 @@ class ProjectsTableViewController: UITableViewController {
     
     let model = generateRandomData()
     var storedOffsets = [Int: CGFloat]()
+    //var projects = 
     
     override func viewDidLoad() {
         super.viewDidLoad()

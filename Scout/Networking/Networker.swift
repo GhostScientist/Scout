@@ -15,8 +15,8 @@ final class Networker {
     let database = Firestore.firestore()
     // Test to see if Git works properly now.
     
-    func postToFirebase(_ spot: Spot) {
-        database.collection("Dummy").document("Test").setData([
+    func postToPublicFirebase(_ spot: Spot) {
+        database.collection("public").addDocument(data: [
             "locationName": spot.locationName,
             "description": spot.description,
             "tags": spot.tags,
@@ -61,5 +61,9 @@ final class Networker {
         
     }
     
+    func pullPublicSpots() -> [Spot] {
+        let spot = Spot(locationName: "Dummy", description: "Dummy", tags: ["Dummy"], lat: (userLocation?.coordinate.latitude)!, long: (userLocation?.coordinate.longitude)!, photosURL: [""])
+        return [spot]
+    }
     
 }
