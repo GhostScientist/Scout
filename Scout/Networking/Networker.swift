@@ -16,6 +16,12 @@ final class Networker {
     let database = Firestore.firestore()
     // Test to see if Git works properly now.
     
+    // TODO: - Implement authentication
+    
+    // TODO: - Login
+    
+    // TODO: - Registration
+    
     func postToPublicFirebase(_ spot: Spot) {
         database.collection("public").addDocument(data: [
             "locationName": spot.locationName,
