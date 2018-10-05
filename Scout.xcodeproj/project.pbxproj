@@ -25,6 +25,7 @@
 		D30C5C13215BAD740087B245 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30C5C12215BAD740087B245 /* Helper.swift */; };
 		D34E5ED6215F5C1200432DB1 /* ImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34E5ED5215F5C1200432DB1 /* ImageManager.swift */; };
 		D36CE7F42162EDD5008C0D7A /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36CE7F32162EDD5008C0D7A /* Project.swift */; };
+		D3E673942167A05900A146EE /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E673932167A05900A146EE /* ViewExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +50,7 @@
 		D30C5C12215BAD740087B245 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		D34E5ED5215F5C1200432DB1 /* ImageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageManager.swift; sourceTree = "<group>"; };
 		D36CE7F32162EDD5008C0D7A /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
+		D3E673932167A05900A146EE /* ViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtension.swift; sourceTree = "<group>"; };
 		EF5FCEDB920FA88C3A9DA5EC /* Pods-Scout.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Scout.release.xcconfig"; path = "Pods/Target Support Files/Pods-Scout/Pods-Scout.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -94,6 +96,7 @@
 		D30576D52158085400BE0AED /* Scout */ = {
 			isa = PBXGroup;
 			children = (
+				D3E673922167A04300A146EE /* Extensions */,
 				D30C5C09215B8F330087B245 /* Onboard */,
 				D30C5C06215B8C160087B245 /* Model */,
 				D30576EC21580B1400BE0AED /* Add */,
@@ -202,6 +205,14 @@
 				D30C5C10215BA4670087B245 /* ProjectsTableViewCell.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		D3E673922167A04300A146EE /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				D3E673932167A05900A146EE /* ViewExtension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		FDBED509FAD34F1C2C42618F /* Frameworks */ = {
@@ -400,6 +411,7 @@
 				D30576F12158114300BE0AED /* AddViewController.swift in Sources */,
 				D30C5C0F215BA3580087B245 /* ProjectsTableViewController.swift in Sources */,
 				D30576D92158085400BE0AED /* MapViewController.swift in Sources */,
+				D3E673942167A05900A146EE /* ViewExtension.swift in Sources */,
 				D30576F8215812ED00BE0AED /* Networker.swift in Sources */,
 				D30C5C13215BAD740087B245 /* Helper.swift in Sources */,
 				D34E5ED6215F5C1200432DB1 /* ImageManager.swift in Sources */,
