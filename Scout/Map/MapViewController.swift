@@ -74,11 +74,11 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
     // TODO: - How to create a persistent login state. UserDefaults?
     
     override func viewDidAppear(_ animated: Bool) {
-//        if !loginPresented {
-//            let vc = storyboard?.instantiateViewController(withIdentifier: "Onboarding") as! OnboardViewController
-//            loginPresented = true
-//            present(vc, animated: true)
-//        }
+        if !loginPresented {
+            let vc = storyboard?.instantiateViewController(withIdentifier: "Onboarding") as! OnboardViewController
+            loginPresented = true
+            present(vc, animated: true)
+        }
     }
 }
 
