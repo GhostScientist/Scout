@@ -9,6 +9,7 @@ target 'Scout' do
 pod 'Firebase/Core'
 pod 'Firebase/Firestore'
 pod 'Firebase/Storage'
+pod 'FirebaseUI'
 
 end
 
