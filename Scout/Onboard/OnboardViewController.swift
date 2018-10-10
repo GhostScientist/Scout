@@ -31,8 +31,16 @@ class OnboardViewController: UIViewController {
         let l = UIButton(type: UIButton.ButtonType.system)
             l.setTitleColor(UIColor.white, for: .normal)
             l.setTitle("Login", for: .normal)
-            l.backgroundColor = UIColor.purple
+            l.backgroundColor = UIColor(red: 125/255, green: 188/255, blue: 96/255, alpha: 1)
         return l
+    }()
+    
+    let icon: UIImageView = {
+        let i = UIImageView()
+        i.contentMode = .scaleAspectFill
+        i.layer.masksToBounds = true
+        i.image = UIImage(named: "scout")
+        return i
     }()
     
     let haveAccountButton: UIButton = {
@@ -82,6 +90,7 @@ class OnboardViewController: UIViewController {
         setupLoginButton()
         setupHaveAccountButton()
         setupForgotPasswordButton()
+        setupIcon()
     }
     
     fileprivate func setupEmailField() {
@@ -98,7 +107,7 @@ class OnboardViewController: UIViewController {
     fileprivate func setupLoginButton() {
         view.addSubview(loginButton)
         loginButton.anchors(top: passwordTextField.bottomAnchor, topPad: 8, bottom: nil, bottomPad: 0, left: passwordTextField.leftAnchor, leftPad: 0, right: passwordTextField.rightAnchor, rightPad: 0, height: 50, width: 0)
-        
+        loginButton.addTarget(self, action: #selector(loginTapped), for: .touchUpInside)
     }
     
     fileprivate func setupHaveAccountButton() {
@@ -110,6 +119,23 @@ class OnboardViewController: UIViewController {
         view.addSubview(forgotPassword)
         forgotPassword.anchors(top: loginButton.bottomAnchor, topPad: 8, bottom: nil, bottomPad: 0, left: loginButton.leftAnchor, leftPad: 0, right: loginButton
             .rightAnchor, rightPad: 0, height: 30, width: 0)
+    }
+    
+    func setupIcon() {
+        view.addSubview(icon)
+        icon.anchors(top: view.safeAreaLayoutGuide.topAnchor, topPad: 30, bottom: emailTextField.topAnchor, bottomPad: 30, left: view.leftAnchor, leftPad: 30, right: view.rightAnchor, rightPad: 30, height: 40, width: 40)
+        
+    }
+    
+    @objc func loginTapped() {
+        let email = emailTextField.text!
+        let password = passwordTextField.text!
+        // TODO: - Check Passwords with Helper.check methods.
+        Networker.shared.createUserWith(email: email, password: password) {
+            // Completion handler to do stuff after the user is logged in.
+        }
+        
+        // Handle errors related to registration.
     }
     
 }

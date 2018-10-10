@@ -13,6 +13,7 @@ import CoreLocation
 final class Networker {
     // Using the Singleton design pattern for the Networker.
     static let shared = Networker()
+    var userID: String! // Every user will have a user id. This is integral to working with the backend.
     let database = Firestore.firestore()
     // Test to see if Git works properly now.
     
@@ -85,6 +86,16 @@ final class Networker {
         
         
         return [spot]
+    }
+    
+    func createUserWith(email: String, password: String, completion: () -> ()) {
+        Auth.auth().createUser(withEmail: email, password: password) { (auth, error) in
+            if error != nil {
+                
+            } else {
+                print("There was an error during registration.")
+            }
+        }
     }
     
 }

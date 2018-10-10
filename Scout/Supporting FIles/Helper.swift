@@ -19,6 +19,16 @@ func generateRandomData() -> [[UIColor]] {
     }
 }
 
+// TODO: - Implement validity checks
+
+func checkValidEmail(email: String) -> Bool {
+    return false
+}
+
+func checkValidPassword(email: String) -> Bool {
+    return false
+}
+
 extension UIColor {
     
     class func randomColor() -> UIColor {
