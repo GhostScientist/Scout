@@ -14,6 +14,7 @@ class OnboardViewController: UIViewController {
     let emailTextField: UITextField = {
         let e = UITextField()
             e.backgroundColor = UIColor(red: 173/255, green: 207/255, blue: 96/255, alpha: 1)
+            e.textColor = UIColor.white
         let placeholder = NSAttributedString(string: "email", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
             e.attributedPlaceholder = placeholder
         return e
@@ -24,6 +25,8 @@ class OnboardViewController: UIViewController {
         let placeholder = NSAttributedString(string: "password", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
             p.attributedPlaceholder = placeholder
             p.backgroundColor = UIColor(red: 173/255, green: 207/255, blue: 96/255, alpha: 1)
+            p.textColor = UIColor.white
+            p.isSecureTextEntry = true
         return p
     }()
     
@@ -52,6 +55,7 @@ class OnboardViewController: UIViewController {
             h.setAttributedTitle(attributedString, for: .normal)
             h.setTitleColor(UIColor.white, for: .normal)
         attributedString.append(NSAttributedString(string: "Sign up", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white, NSAttributedString.Key.font: font]))
+        h.addTarget(self, action: #selector(presentRegistration), for: .touchUpInside)
         return h
     }()
     
@@ -74,6 +78,15 @@ class OnboardViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         setupTextFieldComponents()
+        self.navigationController?.navigationBar.backIndicatorImage = UIImage()
+        //self.navigationBar.shadowImage = UIImage()
+    }
+    
+    @objc func presentRegistration() {
+        // FIX: - Fix Onboarding presentation. I want transparent navigation bars.
+        
+        let signupController = RegistrationViewController()
+        self.navigationController?.pushViewController(signupController, animated: true)
     }
     
     

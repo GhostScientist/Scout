@@ -17,8 +17,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         FirebaseApp.configure()
-        
+        setRootViewController()
         return true
+    }
+    
+    func setRootViewController() {
+        if Auth.auth().currentUser == nil {
+            // Present Map
+            self.presentOnboarding()
+        }
+    }
+    
+    
+    func presentOnboarding() {
+        let mainStoryBoard = UIStoryboard(name: "Main", bundle: nil)
+        let onboardingVC = mainStoryBoard.instantiateViewController(withIdentifier: "Onboarding")
+        self.window = UIWindow(frame: UIScreen.main.bounds)
+        self.window?.makeKeyAndVisible()
+        self.window?.rootViewController = onboardingVC
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
