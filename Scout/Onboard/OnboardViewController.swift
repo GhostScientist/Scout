@@ -68,11 +68,6 @@ class OnboardViewController: UIViewController {
         return f
     }()
     
-    // This will be a view inspired by Glassdoor's onboarding
-    // forms for new/returning users. It will have a rounded card
-    // with text fields on it and a button to swap between logging in
-    // and registering. When swapping, the card will flip with a smooth
-    // animation.
 
     override func viewDidLoad() {
         super.viewDidLoad()
