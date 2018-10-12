@@ -8,15 +8,20 @@
 
 import UIKit
 
-class OnboardViewController: UIViewController {
+class OnboardViewController: UIViewController, UITextFieldDelegate {
     
-    // IB Outlet
+    // IB Outlets
     let emailTextField: UITextField = {
         let e = UITextField()
-            e.backgroundColor = UIColor(red: 173/255, green: 207/255, blue: 96/255, alpha: 1)
+            e.setBottomBorder(backgroundColor: UIColor.rgb(r: 173, g: 207, b: 96), borderColor: UIColor.white)
+            e.backgroundColor = UIColor.rgb(r: 173, g: 207, b: 96)
             e.textColor = UIColor.white
         let placeholder = NSAttributedString(string: "email", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
             e.attributedPlaceholder = placeholder
+        let imageView = UIImageView(image: UIImage(named: "email"))
+            imageView.transform = CGAffineTransform(scaleX: 0.75, y: 0.75)
+            e.leftView = imageView
+            e.leftViewMode = .unlessEditing
         return e
     }()
     
@@ -24,9 +29,14 @@ class OnboardViewController: UIViewController {
         let p = UITextField()
         let placeholder = NSAttributedString(string: "password", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
             p.attributedPlaceholder = placeholder
-            p.backgroundColor = UIColor(red: 173/255, green: 207/255, blue: 96/255, alpha: 1)
+            p.setBottomBorder(backgroundColor: UIColor.rgb(r: 173, g: 207, b: 96), borderColor: UIColor.white)
             p.textColor = UIColor.white
             p.isSecureTextEntry = true
+        let imageView = UIImageView(image: UIImage(named: "lock"))
+            imageView.transform = CGAffineTransform(scaleX: 0.75, y: 0.75)
+            p.leftView = imageView
+            p.leftViewMode = .unlessEditing
+
         return p
     }()
     
@@ -35,6 +45,7 @@ class OnboardViewController: UIViewController {
             l.setTitleColor(UIColor.white, for: .normal)
             l.setTitle("Login", for: .normal)
             l.backgroundColor = UIColor(red: 125/255, green: 188/255, blue: 96/255, alpha: 1)
+            l.layer.cornerRadius = 10
         return l
     }()
     
@@ -50,7 +61,7 @@ class OnboardViewController: UIViewController {
         let color = UIColor(red: 180/255, green: 150/255, blue: 120/255, alpha: 1)
         let font = UIFont.systemFont(ofSize: 16.0)
         let h = UIButton(type: UIButton.ButtonType.system)
-        h.backgroundColor = UIColor(red: 173/255, green: 207/255, blue: 96/255, alpha: 1)
+        h.backgroundColor = UIColor.rgb(r: 173, g: 207, b: 96)
         let attributedString = NSMutableAttributedString(string: "Don't have an account? ", attributes: [NSMutableAttributedString.Key.foregroundColor: color, NSAttributedString.Key.font: font])
             h.setAttributedTitle(attributedString, for: .normal)
             h.setTitleColor(UIColor.white, for: .normal)
@@ -72,13 +83,14 @@ class OnboardViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        self.tapToHideKeyboard()
+        view.backgroundColor = UIColor.rgb(r: 173, g: 207, b: 96)
         setupTextFieldComponents()
-        self.navigationController?.navigationBar.backIndicatorImage = UIImage()
-        //self.navigationBar.shadowImage = UIImage()
     }
+
     
     @objc func presentRegistration() {
-        // FIX: - Fix Onboarding presentation. I want transparent navigation bars.
+        // FIX: - Fix Onboarding presentation.
         
         let signupController = RegistrationViewController()
         self.navigationController?.pushViewController(signupController, animated: true)
@@ -90,7 +102,7 @@ class OnboardViewController: UIViewController {
     }
     
     
-    // IB Action
+    // UI Setup Functions
 
     fileprivate func setupTextFieldComponents() {
         setupEmailField()
@@ -103,18 +115,20 @@ class OnboardViewController: UIViewController {
     
     fileprivate func setupEmailField() {
         view.addSubview(emailTextField)
+        emailTextField.delegate = self
         emailTextField.anchors(top: nil, topPad: 0, bottom: nil, bottomPad: 0, left: view.leftAnchor, leftPad: 24, right: view.rightAnchor, rightPad: 24, height: 30, width: 0)
         emailTextField.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
     }
     
     fileprivate func setupPasswordField() {
         view.addSubview(passwordTextField)
+        passwordTextField.delegate = self
         passwordTextField.anchors(top: emailTextField.bottomAnchor, topPad: 8, bottom: nil, bottomPad: 0, left: emailTextField.leftAnchor, leftPad: 0, right: emailTextField.rightAnchor, rightPad: 0, height: 30, width: 0)
     }
     
     fileprivate func setupLoginButton() {
         view.addSubview(loginButton)
-        loginButton.anchors(top: passwordTextField.bottomAnchor, topPad: 8, bottom: nil, bottomPad: 0, left: passwordTextField.leftAnchor, leftPad: 0, right: passwordTextField.rightAnchor, rightPad: 0, height: 50, width: 0)
+        loginButton.anchors(top: passwordTextField.bottomAnchor, topPad: 12, bottom: nil, bottomPad: 0, left: passwordTextField.leftAnchor, leftPad: 0, right: passwordTextField.rightAnchor, rightPad: 0, height: 50, width: 0)
         loginButton.addTarget(self, action: #selector(loginTapped), for: .touchUpInside)
     }
     
@@ -135,6 +149,15 @@ class OnboardViewController: UIViewController {
         
     }
     
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == emailTextField {
+            passwordTextField.becomeFirstResponder()
+        } else if textField == passwordTextField {
+            self.view.endEditing(true)
+        }
+        return false
+    }
+    
     @objc func loginTapped() {
         let email = emailTextField.text!
         let password = passwordTextField.text!
@@ -145,5 +168,6 @@ class OnboardViewController: UIViewController {
         
         // Handle errors related to registration.
     }
+    
     
 }

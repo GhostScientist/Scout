@@ -27,6 +27,7 @@
 		D36CE7F42162EDD5008C0D7A /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36CE7F32162EDD5008C0D7A /* Project.swift */; };
 		D372C1D5216F8E4D00A69B2D /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D372C1D4216F8E4D00A69B2D /* RegistrationViewController.swift */; };
 		D3E673942167A05900A146EE /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E673932167A05900A146EE /* ViewExtension.swift */; };
+		D3F0082F21712585006E0655 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F0082E21712585006E0655 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +54,7 @@
 		D36CE7F32162EDD5008C0D7A /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
 		D372C1D4216F8E4D00A69B2D /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		D3E673932167A05900A146EE /* ViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtension.swift; sourceTree = "<group>"; };
+		D3F0082E21712585006E0655 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		EF5FCEDB920FA88C3A9DA5EC /* Pods-Scout.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Scout.release.xcconfig"; path = "Pods/Target Support Files/Pods-Scout/Pods-Scout.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -163,6 +165,7 @@
 				D30576DF2158085F00BE0AED /* Assets.xcassets */,
 				D30576E12158085F00BE0AED /* LaunchScreen.storyboard */,
 				D30C5C12215BAD740087B245 /* Helper.swift */,
+				D3F0082E21712585006E0655 /* Constants.swift */,
 			);
 			path = "Supporting FIles";
 			sourceTree = "<group>";
@@ -411,6 +414,7 @@
 				D36CE7F42162EDD5008C0D7A /* Project.swift in Sources */,
 				D30576D72158085400BE0AED /* AppDelegate.swift in Sources */,
 				D30C5C0B215B90050087B245 /* OnboardViewController.swift in Sources */,
+				D3F0082F21712585006E0655 /* Constants.swift in Sources */,
 				D30576F12158114300BE0AED /* AddViewController.swift in Sources */,
 				D30C5C0F215BA3580087B245 /* ProjectsTableViewController.swift in Sources */,
 				D372C1D5216F8E4D00A69B2D /* RegistrationViewController.swift in Sources */,

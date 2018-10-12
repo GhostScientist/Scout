@@ -31,7 +31,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func presentOnboarding() {
         let mainStoryBoard = UIStoryboard(name: "Main", bundle: nil)
-        let onboardingVC = mainStoryBoard.instantiateViewController(withIdentifier: "Onboarding")
+        let onboardingVC = RegistrationViewController()
         self.window = UIWindow(frame: UIScreen.main.bounds)
         self.window?.makeKeyAndVisible()
         self.window?.rootViewController = onboardingVC

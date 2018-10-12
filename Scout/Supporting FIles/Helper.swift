@@ -39,4 +39,31 @@ extension UIColor {
         
         return UIColor(hue: hue, saturation: saturation, brightness: brightness, alpha: 1.0)
     }
+    
+    static func rgb(r: CGFloat, g: CGFloat, b: CGFloat) -> UIColor {
+        return UIColor(displayP3Red: r / 255, green: g / 255, blue: b / 255, alpha: 1.0)
+    }
 }
+
+extension UITextField {
+    func setBottomBorder(backgroundColor: UIColor, borderColor: UIColor) {
+        self.layer.backgroundColor = backgroundColor.cgColor
+        self.layer.shadowOffset = CGSize(width: 0.0, height: 1.0)
+        self.layer.shadowOpacity = 1.0
+        self.layer.shadowRadius = 0.0
+        self.layer.shadowColor = borderColor.cgColor
+    }
+}
+
+extension UIViewController {
+    func tapToHideKeyboard() {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKey))
+        tap.cancelsTouchesInView = false
+        self.view.addGestureRecognizer(tap)
+    }
+    
+    @objc func dismissKey() {
+        view.endEditing(true)
+    }
+}
+
