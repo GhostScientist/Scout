@@ -78,6 +78,7 @@ class OnboardViewController: UIViewController, UITextFieldDelegate {
         f.setTitleColor(UIColor.white, for: .normal)
         f.setTitle("Forgot Password?", for: .normal)
         f.backgroundColor = color
+        f.addTarget(self, action: #selector(forgotTapped), for: .touchUpInside)
         return f
     }()
     
@@ -98,6 +99,24 @@ class OnboardViewController: UIViewController, UITextFieldDelegate {
         
         let signupController = RegistrationViewController()
         navigationController?.pushViewController(signupController, animated: true)
+    }
+    
+    @objc func forgotTapped() {
+        let ac = UIAlertController()
+        ac.addTextField { (textfield) in
+            textfield.placeholder = "Enter your email"
+            textfield.adjustsFontSizeToFitWidth = true
+        }
+        ac.addAction(UIAlertAction(title: "Submit", style: .default, handler: { (action) in
+            if let email = ac.textFields?.first?.text {
+                Auth.auth().sendPasswordReset(withEmail: email, completion: { (error) in
+                    if error != nil {
+                        print("There was an error sending the password reset email: Error: \(error?.localizedDescription)")
+                    }
+                })
+            }
+        }))
+        present(ac, animated: true)
     }
     
     
