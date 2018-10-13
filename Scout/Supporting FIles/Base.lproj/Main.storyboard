@@ -11,7 +11,7 @@
         <!--First-->
         <scene sceneID="hNz-n2-bh7">
             <objects>
-                <viewController id="9pv-A4-QxB" customClass="MapViewController" customModule="Scout" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Maps" id="9pv-A4-QxB" customClass="MapViewController" customModule="Scout" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="bVL-uw-g8z"/>
                         <viewControllerLayoutGuide type="bottom" id="I3P-Cv-bP6"/>

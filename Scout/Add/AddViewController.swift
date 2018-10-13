@@ -66,14 +66,20 @@ class AddViewController: UIViewController {
     
     // MARK: - IB Action
     @IBAction func onTapPostDummy(_ sender: UIButton) {
-        guard let capturePhotoOutput = self.capturePhotoOuput else { return }
-        
-        let photoSettings = AVCapturePhotoSettings()
-        photoSettings.isHighResolutionPhotoEnabled = true
-        photoSettings.isAutoStillImageStabilizationEnabled = true
-        photoSettings.flashMode = .auto
-        
-        capturePhotoOutput.capturePhoto(with: photoSettings, delegate: self)
+//        guard let capturePhotoOutput = self.capturePhotoOuput else { return }
+//
+//        let photoSettings = AVCapturePhotoSettings()
+//        photoSettings.isHighResolutionPhotoEnabled = true
+//        photoSettings.isAutoStillImageStabilizationEnabled = true
+//        photoSettings.flashMode = .auto
+//
+//        capturePhotoOutput.capturePhoto(with: photoSettings, delegate: self)
+        do {
+            try Auth.auth().signOut()
+            print("Signed out.")
+        } catch {
+            print("Error signing out.")
+        }
     }
     
     @IBAction func grabData(_ sender: UIButton) {

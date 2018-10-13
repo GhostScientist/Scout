@@ -18,6 +18,12 @@
 		D30576F5215812D100BE0AED /* ScoutedCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30576F4215812D100BE0AED /* ScoutedCollectionViewController.swift */; };
 		D30576F8215812ED00BE0AED /* Networker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30576F7215812ED00BE0AED /* Networker.swift */; };
 		D30576FA2158181200BE0AED /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D30576F92158181200BE0AED /* GoogleService-Info.plist */; };
+		D3087938217247E900E90752 /* ScoutedCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3087936217247E900E90752 /* ScoutedCollectionViewCell.swift */; };
+		D3087939217247E900E90752 /* ScoutedCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3087937217247E900E90752 /* ScoutedCollectionViewCell.xib */; };
+		D308793C2172481200E90752 /* ProjectContentCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D308793A2172481200E90752 /* ProjectContentCollectionViewCell.swift */; };
+		D308793D2172481200E90752 /* ProjectContentCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D308793B2172481200E90752 /* ProjectContentCollectionViewCell.xib */; };
+		D30879402172483900E90752 /* SearchResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D308793E2172483900E90752 /* SearchResultTableViewCell.swift */; };
+		D30879412172483900E90752 /* SearchResultTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D308793F2172483900E90752 /* SearchResultTableViewCell.xib */; };
 		D30C5C08215B8C800087B245 /* Spot.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30C5C07215B8C800087B245 /* Spot.swift */; };
 		D30C5C0B215B90050087B245 /* OnboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30C5C0A215B90050087B245 /* OnboardViewController.swift */; };
 		D30C5C0F215BA3580087B245 /* ProjectsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30C5C0E215BA3580087B245 /* ProjectsTableViewController.swift */; };
@@ -45,6 +51,12 @@
 		D30576F4215812D100BE0AED /* ScoutedCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoutedCollectionViewController.swift; sourceTree = "<group>"; };
 		D30576F7215812ED00BE0AED /* Networker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networker.swift; sourceTree = "<group>"; };
 		D30576F92158181200BE0AED /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		D3087936217247E900E90752 /* ScoutedCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoutedCollectionViewCell.swift; sourceTree = "<group>"; };
+		D3087937217247E900E90752 /* ScoutedCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ScoutedCollectionViewCell.xib; sourceTree = "<group>"; };
+		D308793A2172481200E90752 /* ProjectContentCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectContentCollectionViewCell.swift; sourceTree = "<group>"; };
+		D308793B2172481200E90752 /* ProjectContentCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProjectContentCollectionViewCell.xib; sourceTree = "<group>"; };
+		D308793E2172483900E90752 /* SearchResultTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultTableViewCell.swift; sourceTree = "<group>"; };
+		D308793F2172483900E90752 /* SearchResultTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchResultTableViewCell.xib; sourceTree = "<group>"; };
 		D30C5C07215B8C800087B245 /* Spot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spot.swift; sourceTree = "<group>"; };
 		D30C5C0A215B90050087B245 /* OnboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardViewController.swift; sourceTree = "<group>"; };
 		D30C5C0E215BA3580087B245 /* ProjectsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsTableViewController.swift; sourceTree = "<group>"; };
@@ -129,6 +141,8 @@
 			isa = PBXGroup;
 			children = (
 				D30576DA2158085400BE0AED /* SearchViewController.swift */,
+				D308793E2172483900E90752 /* SearchResultTableViewCell.swift */,
+				D308793F2172483900E90752 /* SearchResultTableViewCell.xib */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -154,6 +168,8 @@
 			isa = PBXGroup;
 			children = (
 				D30576F4215812D100BE0AED /* ScoutedCollectionViewController.swift */,
+				D3087936217247E900E90752 /* ScoutedCollectionViewCell.swift */,
+				D3087937217247E900E90752 /* ScoutedCollectionViewCell.xib */,
 			);
 			path = Scouted;
 			sourceTree = "<group>";
@@ -209,6 +225,8 @@
 			children = (
 				D30C5C0E215BA3580087B245 /* ProjectsTableViewController.swift */,
 				D30C5C10215BA4670087B245 /* ProjectsTableViewCell.swift */,
+				D308793A2172481200E90752 /* ProjectContentCollectionViewCell.swift */,
+				D308793B2172481200E90752 /* ProjectContentCollectionViewCell.xib */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -290,9 +308,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D308793D2172481200E90752 /* ProjectContentCollectionViewCell.xib in Resources */,
 				D30576E32158085F00BE0AED /* LaunchScreen.storyboard in Resources */,
 				D30576FA2158181200BE0AED /* GoogleService-Info.plist in Resources */,
 				D30576E02158085F00BE0AED /* Assets.xcassets in Resources */,
+				D30879412172483900E90752 /* SearchResultTableViewCell.xib in Resources */,
+				D3087939217247E900E90752 /* ScoutedCollectionViewCell.xib in Resources */,
 				D30576DE2158085400BE0AED /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -415,7 +436,9 @@
 				D30576D72158085400BE0AED /* AppDelegate.swift in Sources */,
 				D30C5C0B215B90050087B245 /* OnboardViewController.swift in Sources */,
 				D3F0082F21712585006E0655 /* Constants.swift in Sources */,
+				D308793C2172481200E90752 /* ProjectContentCollectionViewCell.swift in Sources */,
 				D30576F12158114300BE0AED /* AddViewController.swift in Sources */,
+				D30879402172483900E90752 /* SearchResultTableViewCell.swift in Sources */,
 				D30C5C0F215BA3580087B245 /* ProjectsTableViewController.swift in Sources */,
 				D372C1D5216F8E4D00A69B2D /* RegistrationViewController.swift in Sources */,
 				D30576D92158085400BE0AED /* MapViewController.swift in Sources */,
@@ -423,6 +446,7 @@
 				D30576F8215812ED00BE0AED /* Networker.swift in Sources */,
 				D30C5C13215BAD740087B245 /* Helper.swift in Sources */,
 				D34E5ED6215F5C1200432DB1 /* ImageManager.swift in Sources */,
+				D3087938217247E900E90752 /* ScoutedCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

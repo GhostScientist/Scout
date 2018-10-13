@@ -7,14 +7,21 @@
 //
 
 import UIKit
+import Firebase
 
 class RegistrationViewController: UIViewController, UITextFieldDelegate {
-    
     
     // TODO: - Today
     // 1. Finish UI
     // 2. Presenting onboarding properly.
     // 3. Ensure auth works.
+    
+    // Onboarding Presentation
+    // When the user opens the app,
+    //      if they are logged in, it will present the Maps VC.
+    //      else, it will present the onboardVC.
+    //          inside the onboardVC, users can tap to signup and be pushed to the registration controller.
+    
     
     // TODO: - Tomorrow
     // 1. Rethink posting flow.
@@ -48,6 +55,7 @@ class RegistrationViewController: UIViewController, UITextFieldDelegate {
         imageView.transform = CGAffineTransform(scaleX: 0.75, y: 0.75)
         e.leftView = imageView
         e.leftViewMode = .unlessEditing
+        e.keyboardType = .emailAddress
         return e
     }()
     
@@ -80,9 +88,10 @@ class RegistrationViewController: UIViewController, UITextFieldDelegate {
     let signupButton: UIButton = {
         let s = UIButton(type: UIButton.ButtonType.system)
         s.setTitleColor(UIColor.white, for: .normal)
-        s.setTitle("Login", for: .normal)
+        s.setTitle("Sign Up", for: .normal)
         s.backgroundColor = UIColor(red: 125/255, green: 188/255, blue: 96/255, alpha: 1)
         s.layer.cornerRadius = 10
+        s.addTarget(self, action: #selector(signupTapped), for: .touchUpInside)
         return s
     }()
 
@@ -126,7 +135,7 @@ class RegistrationViewController: UIViewController, UITextFieldDelegate {
         view.addSubview(emailTextField)
         emailTextField.delegate = self
         emailTextField.anchors(top: nil, topPad: 0, bottom: nil, bottomPad: 0, left: view.leftAnchor, leftPad: 24, right: view.rightAnchor, rightPad: 24, height: 30, width: 0)
-        emailTextField.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -30).isActive = true
+        emailTextField.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -50).isActive = true
     }
     
     func setupPassField() {
@@ -147,10 +156,22 @@ class RegistrationViewController: UIViewController, UITextFieldDelegate {
     }
 
     @objc func signupTapped() {
-        if passwordTextField.text == confirmPasswordTextField.text { // Only if the passwords are the same. Check their validity.
-            // TODO: - Create user & sign them in. Dismiss view upon successful registration.
-        } else {
-            // TODO: - Present user with Alert. Handle Auth errors. Reset fields.
+        if let email = emailTextField.text, let password = passwordTextField.text, let confirm = confirmPasswordTextField.text {
+            if password == confirm && checkValidPassword(password: password) && checkValidEmail(email: email) {
+                Auth.auth().createUser(withEmail: email, password: password) { (result, error) in
+                    if error != nil {
+                        print("There was an error creating your account. Please try again. Error: \(error?.localizedDescription)")
+                    } else {
+                        print("Success! User's information is: \(result?.user.email) \(result?.user.displayName) \(result?.user.uid)")
+                        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+                        let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                        let mapsVC = mainStoryboard.instantiateViewController(withIdentifier: "tabBar")
+                        appDelegate.window = UIWindow(frame: UIScreen.main.bounds)
+                        appDelegate.window?.makeKeyAndVisible()
+                        appDelegate.window?.rootViewController = mapsVC
+                    }
+                }
+            }
         }
     }
     

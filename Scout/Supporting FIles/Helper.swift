@@ -22,10 +22,16 @@ func generateRandomData() -> [[UIColor]] {
 // TODO: - Implement validity checks
 
 func checkValidEmail(email: String) -> Bool {
+    if email.contains("@") && email.contains(".") && email.count > 5 {
+        return true
+    }
     return false
 }
 
-func checkValidPassword(email: String) -> Bool {
+func checkValidPassword(password: String) -> Bool {
+    if password.count > 8 {
+        return true
+    }
     return false
 }
 

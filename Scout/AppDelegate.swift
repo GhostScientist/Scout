@@ -22,19 +22,38 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func setRootViewController() {
+        // Onboarding Presentation
+        // When the user opens the app,
+        //      if they are logged in, it will present the Maps VC.
+        //      else, it will present the onboardVC.
+        //          inside the onboardVC, users can tap to signup and be pushed to the registration controller.
         if Auth.auth().currentUser == nil {
             // Present Map
+            print("NIL USER")
             self.presentOnboarding()
+        } else {
+            print("NON NIL USER")
+            self.presentMaps()
         }
     }
     
     
     func presentOnboarding() {
         let mainStoryBoard = UIStoryboard(name: "Main", bundle: nil)
-        let onboardingVC = RegistrationViewController()
+        let onboardingVC = mainStoryBoard.instantiateViewController(withIdentifier: "Onboarding")
         self.window = UIWindow(frame: UIScreen.main.bounds)
         self.window?.makeKeyAndVisible()
-        self.window?.rootViewController = onboardingVC
+        let controller = UINavigationController(rootViewController: onboardingVC)
+        self.window?.rootViewController = controller
+    }
+    
+    func presentMaps() {
+        let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let mapsVC = mainStoryboard.instantiateViewController(withIdentifier: "tabBar")
+        self.window = UIWindow(frame: UIScreen.main.bounds)
+        self.window?.makeKeyAndVisible()
+        self.window?.rootViewController = mapsVC
+        
     }
 
     func applicationWillResignActive(_ application: UIApplication) {

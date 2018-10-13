@@ -55,7 +55,6 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         DispatchQueue.main.async {
             // Serial Queue to prevent race condition.
             self.locationManager.requestWhenInUseAuthorization() // completion handler with success would be better.
-            self.setUpLocationServices()
         }
     }
     
@@ -73,13 +72,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
     var loginPresented = false
     // TODO: - How to create a persistent login state. UserDefaults?
     
-    override func viewDidAppear(_ animated: Bool) {
-        if !loginPresented {
-            let vc = storyboard?.instantiateViewController(withIdentifier: "Onboarding") as! OnboardViewController
-            loginPresented = true
-            present(vc, animated: true)
-        }
-    }
+    
 }
 
 // Superfluous extension?
