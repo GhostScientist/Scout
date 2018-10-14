@@ -77,6 +77,12 @@ class AddViewController: UIViewController {
         do {
             try Auth.auth().signOut()
             print("Signed out.")
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let onboardingVC = mainStoryboard.instantiateViewController(withIdentifier: "Onboarding")
+            appDelegate.window = UIWindow(frame: UIScreen.main.bounds)
+            appDelegate.window?.makeKeyAndVisible()
+            appDelegate.window?.rootViewController = onboardingVC
         } catch {
             print("Error signing out.")
         }

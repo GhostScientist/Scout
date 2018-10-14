@@ -20,25 +20,15 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        searchTextField.delegate = self
         // Do any additional setup after loading the view, typically from a nib.
-        self.hideKeyboardWhenTappedAround()
+        self.tapToHideKeyboard()
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        self.dismissKeyboard()
-        return true
+        self.view.endEditing(true)
+        return false
     }
 }
 
-extension UIViewController {
-    func hideKeyboardWhenTappedAround() {
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
-        view.addGestureRecognizer(tap)
-        
-    }
-    
-    @objc func dismissKeyboard() {
-        view.endEditing(true)
-    }
-}
 

@@ -21,7 +21,7 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSCameraUsageDescription</key>
-	<string>Scout will use the user&apos;s selected photos for their spots.</string>
+	<string>Scout will use the user's selected photos for their spots.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Scout uses your location to tag your contributions.</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
@@ -34,6 +34,8 @@
 	<array>
 		<string>armv7</string>
 	</array>
+	<key>UIStatusBarStyle</key>
+	<string>UIStatusBarStyleLightContent</string>
 	<key>UIStatusBarTintParameters</key>
 	<dict>
 		<key>UINavigationBar</key>

@@ -16,6 +16,7 @@ class ProjectsTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         setupUI()
     }
     
@@ -44,7 +45,7 @@ class ProjectsTableViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! ProjectsTableViewCell
 
         // Configure the cell...
         
@@ -66,12 +67,18 @@ class ProjectsTableViewController: UITableViewController {
 
 extension ProjectsTableViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return model[collectionView.tag].count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CollectionCell", for: indexPath)
+        let nibCell = UINib(nibName: "ProjectContentCollectionViewCell", bundle: nil)
+        collectionView.register(nibCell, forCellWithReuseIdentifier: "ProjectCell")
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProjectCell", for: indexPath) as! ProjectContentCollectionViewCell
+    
+        cell.spotLabel.text = "\(indexPath.row) mi."
+        cell.imageView.image = UIImage()
         
         cell.backgroundColor = model[collectionView.tag][indexPath.item]
         

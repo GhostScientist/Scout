@@ -6,5 +6,6 @@
 //  Copyright © 2018 theghost. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
+let scoutGreenBackground = UIColor.rgb(r: 173, g: 207, b: 96)

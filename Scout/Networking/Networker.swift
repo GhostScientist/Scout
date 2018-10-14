@@ -42,6 +42,10 @@ final class Networker {
         }
     }
     
+    func post(_ spot: Spot) {
+        
+    }
+    
     func deleteFromFirebase(_ spot: Spot) {
         
     }

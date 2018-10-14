@@ -100,7 +100,12 @@ class RegistrationViewController: UIViewController, UITextFieldDelegate {
         self.tapToHideKeyboard()
         view.backgroundColor = UIColor.rgb(r: 173, g: 207, b: 96)
         setupUI()
+        navigationController?.navigationBar.tintColor = UIColor.white
         // Do any additional setup after loading the view.
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
     }
     
     @objc func presentSignIn() {

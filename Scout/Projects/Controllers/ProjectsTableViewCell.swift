@@ -11,10 +11,10 @@ import UIKit
 class ProjectsTableViewCell: UITableViewCell {
     
     @IBOutlet private weak var collectionView: UICollectionView!
-    
 }
 
 extension ProjectsTableViewCell {
+    
     
     func setCollectionViewDataSourceDelegate<D: UICollectionViewDataSource & UICollectionViewDelegate>(_ dataSourceDelegate: D, forRow row: Int) {
         

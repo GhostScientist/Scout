@@ -14,8 +14,8 @@ class OnboardViewController: UIViewController, UITextFieldDelegate {
     // IB Outlets
     let emailTextField: UITextField = {
         let e = UITextField()
-            e.setBottomBorder(backgroundColor: UIColor.rgb(r: 173, g: 207, b: 96), borderColor: UIColor.white)
-            e.backgroundColor = UIColor.rgb(r: 173, g: 207, b: 96)
+            e.setBottomBorder(backgroundColor: scoutGreenBackground, borderColor: UIColor.white)
+            e.backgroundColor = scoutGreenBackground
             e.textColor = UIColor.white
         let placeholder = NSAttributedString(string: "email", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
             e.attributedPlaceholder = placeholder
@@ -31,7 +31,7 @@ class OnboardViewController: UIViewController, UITextFieldDelegate {
         let p = UITextField()
         let placeholder = NSAttributedString(string: "password", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
             p.attributedPlaceholder = placeholder
-            p.setBottomBorder(backgroundColor: UIColor.rgb(r: 173, g: 207, b: 96), borderColor: UIColor.white)
+            p.setBottomBorder(backgroundColor: scoutGreenBackground, borderColor: UIColor.white)
             p.textColor = UIColor.white
             p.isSecureTextEntry = true
         let imageView = UIImageView(image: UIImage(named: "lock"))
@@ -51,19 +51,12 @@ class OnboardViewController: UIViewController, UITextFieldDelegate {
         return l
     }()
     
-//    let icon: UIImageView = {
-//        let i = UIImageView()
-//        i.contentMode = .scaleAspectFill
-//        i.layer.masksToBounds = true
-//        i.image = UIImage(named: "scout")
-//        return i
-//    }()
     
     let haveAccountButton: UIButton = {
         let color = UIColor(red: 180/255, green: 150/255, blue: 120/255, alpha: 1)
         let font = UIFont.systemFont(ofSize: 16.0)
         let h = UIButton(type: UIButton.ButtonType.system)
-        h.backgroundColor = UIColor.rgb(r: 173, g: 207, b: 96)
+        h.backgroundColor = scoutGreenBackground
         let attributedString = NSMutableAttributedString(string: "Don't have an account? ", attributes: [NSMutableAttributedString.Key.foregroundColor: color, NSAttributedString.Key.font: font])
             h.setAttributedTitle(attributedString, for: .normal)
             h.setTitleColor(UIColor.white, for: .normal)
@@ -74,7 +67,7 @@ class OnboardViewController: UIViewController, UITextFieldDelegate {
     
     let forgotPassword: UIButton = {
         let f = UIButton(type: UIButton.ButtonType.system)
-        let color = UIColor(red: 173/255, green: 207/255, blue: 96/255, alpha: 1)
+        let color = scoutGreenBackground
         f.setTitleColor(UIColor.white, for: .normal)
         f.setTitle("Forgot Password?", for: .normal)
         f.backgroundColor = color
@@ -87,7 +80,7 @@ class OnboardViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         self.tapToHideKeyboard()
-        view.backgroundColor = UIColor.rgb(r: 173, g: 207, b: 96)
+        view.backgroundColor = scoutGreenBackground
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         navigationController?.navigationBar.shadowImage = UIImage()
         setupTextFieldComponents()
@@ -102,9 +95,9 @@ class OnboardViewController: UIViewController, UITextFieldDelegate {
     }
     
     @objc func forgotTapped() {
-        let ac = UIAlertController()
+        let ac = UIAlertController(title: "Submit", message: "Reset your password by entering your email.", preferredStyle: .alert)
         ac.addTextField { (textfield) in
-            textfield.placeholder = "Enter your email"
+            textfield.placeholder = "Email"
             textfield.adjustsFontSizeToFitWidth = true
         }
         ac.addAction(UIAlertAction(title: "Submit", style: .default, handler: { (action) in
@@ -119,11 +112,9 @@ class OnboardViewController: UIViewController, UITextFieldDelegate {
         present(ac, animated: true)
     }
     
-    
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
-    
     
     // UI Setup Functions
 
@@ -199,14 +190,6 @@ class OnboardViewController: UIViewController, UITextFieldDelegate {
                 }
             }
         }
-//        let email = emailTextField.text!
-//        let password = passwordTextField.text!
-//        // TODO: - Check Passwords with Helper.check methods.
-//        Networker.shared.createUserWith(email: email, password: password) {
-//            // Completion handler to do stuff after the user is logged in.
-//        }
-        
-        // Handle errors related to registration.
     }
     
     

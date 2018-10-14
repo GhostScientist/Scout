@@ -39,7 +39,6 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
     // Unless I can figure out the math to grab only the values within a certain radius.
     // 1 degree in lat/long is about 69 miles.
     // So should I save them under their Lat/Long in firebase? A collection for each digit?
-    
     // Properties
     
     var locationManager = CLLocationManager()
@@ -55,6 +54,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         DispatchQueue.main.async {
             // Serial Queue to prevent race condition.
             self.locationManager.requestWhenInUseAuthorization() // completion handler with success would be better.
+            self.setUpLocationServices()
         }
     }
     
