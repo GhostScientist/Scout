@@ -14,7 +14,10 @@ import Firebase
 class AddViewController: UIViewController {
     
     // MARK: - IB Outlets
-    @IBOutlet weak var cameraPreviewView: UIView!
+    
+    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var choosePhotoOutlet: UIButton!
+    @IBOutlet weak var takePhotoOutlet: UIButton!
     
     // MARK: - Instance Variables
     var captureSession: AVCaptureSession?
@@ -26,11 +29,17 @@ class AddViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         cameraSetup()
+        choosePhotoOutlet.layer.cornerRadius = 10.0
+        takePhotoOutlet.layer.cornerRadius = 10.0
+        imageView.layer.cornerRadius = 10.0
+        imageView.layer.masksToBounds = true
+        imageView.image = UIImage(named: "camera")
         
         capturePhotoOuput = AVCapturePhotoOutput()
         capturePhotoOuput?.isHighResolutionCaptureEnabled = true
         captureSession?.addOutput(capturePhotoOuput!)
         userLocation = locationManager.location
+        setupUI()
         // Do any additional setup after loading the view.
     }
     
@@ -48,7 +57,7 @@ class AddViewController: UIViewController {
         videoPreviewLayer = AVCaptureVideoPreviewLayer(session: captureSession!)
         videoPreviewLayer?.videoGravity = AVLayerVideoGravity.resizeAspectFill
         videoPreviewLayer?.frame = view.layer.bounds
-        cameraPreviewView.layer.addSublayer(videoPreviewLayer!)
+        
         
         captureSession?.startRunning()
     }
@@ -64,16 +73,35 @@ class AddViewController: UIViewController {
     }
     */
     
-    // MARK: - IB Action
-    @IBAction func onTapPostDummy(_ sender: UIButton) {
-//        guard let capturePhotoOutput = self.capturePhotoOuput else { return }
-//
-//        let photoSettings = AVCapturePhotoSettings()
-//        photoSettings.isHighResolutionPhotoEnabled = true
-//        photoSettings.isAutoStillImageStabilizationEnabled = true
-//        photoSettings.flashMode = .auto
-//
-//        capturePhotoOutput.capturePhoto(with: photoSettings, delegate: self)
+    @IBAction func grabData(_ sender: UIButton) {
+        Networker.shared.pullPublicSpots()
+    }
+    
+    
+    func setupUI() {
+        setupImageView()
+        setupButtons()
+    }
+    
+    func setupImageView() {
+        imageView.anchors(top: view.safeAreaLayoutGuide.topAnchor, topPad: 24, bottom: nil, bottomPad: 0, left: view.leftAnchor, leftPad: 12, right: view.rightAnchor, rightPad: 12, height: view.frame.height / 2, width: 0)
+    }
+    
+    func setupButtons() {
+        choosePhotoOutlet.anchors(top: imageView.bottomAnchor, topPad: 30, bottom: nil, bottomPad: 0, left: view.leftAnchor, leftPad: 12, right: view.rightAnchor, rightPad: 12, height: view.frame.height / 15, width: 0)
+        choosePhotoOutlet.addTarget(self, action: #selector(choosePhotoTapped), for: .touchUpInside)
+        takePhotoOutlet.anchors(top: choosePhotoOutlet.bottomAnchor, topPad: 30, bottom: nil, bottomPad: 0, left: view.leftAnchor, leftPad: 12, right: view.rightAnchor, rightPad: 12, height: view.frame.height / 15, width: 0)
+        takePhotoOutlet.addTarget(self, action: #selector(takePhotoTapped), for: .touchUpInside)
+    }
+    
+    @objc func choosePhotoTapped() {
+        print("Hello, choose tapped")
+        // Present a photo picker.
+    }
+    
+    @objc func takePhotoTapped() {
+        print("Hello, take photo tapped.")
+        // Push a camera view onto the Nav controller stack.
         do {
             try Auth.auth().signOut()
             print("Signed out.")
@@ -84,15 +112,9 @@ class AddViewController: UIViewController {
             appDelegate.window?.makeKeyAndVisible()
             appDelegate.window?.rootViewController = onboardingVC
         } catch {
-            print("Error signing out.")
+            print("Error logging out.")
         }
     }
-    
-    @IBAction func grabData(_ sender: UIButton) {
-        Networker.shared.pullPublicSpots()
-    }
-    
-    
 }
 
 extension AddViewController : AVCapturePhotoCaptureDelegate {

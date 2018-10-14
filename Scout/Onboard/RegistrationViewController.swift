@@ -11,25 +11,11 @@ import Firebase
 
 class RegistrationViewController: UIViewController, UITextFieldDelegate {
     
-    // TODO: - Today
-    // 1. Finish UI
-    // 2. Presenting onboarding properly.
-    // 3. Ensure auth works.
-    
-    // Onboarding Presentation
-    // When the user opens the app,
-    //      if they are logged in, it will present the Maps VC.
-    //      else, it will present the onboardVC.
-    //          inside the onboardVC, users can tap to signup and be pushed to the registration controller.
-    
-    
     // TODO: - Tomorrow
     // 1. Rethink posting flow.
     // 2. Post Dummy data with user logged in.
     
-    
     // Outlets
-
     let haveAccountButton: UIButton = {
         let color = UIColor.rgb(r: 173, g: 207, b: 96)
         let textColor = UIColor.rgb(r: 240, g: 215, b: 96)
