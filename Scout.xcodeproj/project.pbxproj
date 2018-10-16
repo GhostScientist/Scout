@@ -24,6 +24,7 @@
 		D308793D2172481200E90752 /* ProjectContentCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D308793B2172481200E90752 /* ProjectContentCollectionViewCell.xib */; };
 		D30879402172483900E90752 /* SearchResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D308793E2172483900E90752 /* SearchResultTableViewCell.swift */; };
 		D30879412172483900E90752 /* SearchResultTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D308793F2172483900E90752 /* SearchResultTableViewCell.xib */; };
+		D30879452174EEF700E90752 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30879442174EEF700E90752 /* CameraViewController.swift */; };
 		D30C5C08215B8C800087B245 /* Spot.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30C5C07215B8C800087B245 /* Spot.swift */; };
 		D30C5C0B215B90050087B245 /* OnboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30C5C0A215B90050087B245 /* OnboardViewController.swift */; };
 		D30C5C0F215BA3580087B245 /* ProjectsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30C5C0E215BA3580087B245 /* ProjectsTableViewController.swift */; };
@@ -57,6 +58,7 @@
 		D308793B2172481200E90752 /* ProjectContentCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProjectContentCollectionViewCell.xib; sourceTree = "<group>"; };
 		D308793E2172483900E90752 /* SearchResultTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultTableViewCell.swift; sourceTree = "<group>"; };
 		D308793F2172483900E90752 /* SearchResultTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchResultTableViewCell.xib; sourceTree = "<group>"; };
+		D30879442174EEF700E90752 /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		D30C5C07215B8C800087B245 /* Spot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spot.swift; sourceTree = "<group>"; };
 		D30C5C0A215B90050087B245 /* OnboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardViewController.swift; sourceTree = "<group>"; };
 		D30C5C0E215BA3580087B245 /* ProjectsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsTableViewController.swift; sourceTree = "<group>"; };
@@ -151,6 +153,7 @@
 			isa = PBXGroup;
 			children = (
 				D30576F02158114300BE0AED /* AddViewController.swift */,
+				D30879442174EEF700E90752 /* CameraViewController.swift */,
 			);
 			path = Add;
 			sourceTree = "<group>";
@@ -429,6 +432,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D30576DB2158085400BE0AED /* SearchViewController.swift in Sources */,
+				D30879452174EEF700E90752 /* CameraViewController.swift in Sources */,
 				D30C5C11215BA4670087B245 /* ProjectsTableViewCell.swift in Sources */,
 				D30576F5215812D100BE0AED /* ScoutedCollectionViewController.swift in Sources */,
 				D30C5C08215B8C800087B245 /* Spot.swift in Sources */,
