@@ -15,7 +15,7 @@ struct Spot {
     var tags: [String]
     var lat: CLLocationDegrees
     var long: CLLocationDegrees
-    var photosURL: String
+    var photoURL: String
     
     init(firebaseDictionary: [String:Any]) {
         self.locationName = firebaseDictionary["location"] as! String
@@ -23,7 +23,7 @@ struct Spot {
         self.tags = firebaseDictionary["tags"] as! [String]
         self.lat = firebaseDictionary["lat"] as! CLLocationDegrees
         self.long = firebaseDictionary["long"] as! CLLocationDegrees
-        self.photosURL = firebaseDictionary["photosURL"] as! String
+        self.photoURL = firebaseDictionary["photosURL"] as! String
     }
     
     init(locationName: String, description: String, tags: [String], lat: CLLocationDegrees, long: CLLocationDegrees, photosURL: String) {
@@ -32,6 +32,6 @@ struct Spot {
         self.tags = tags
         self.lat = lat
         self.long = long
-        self.photosURL = photosURL
+        self.photoURL = photosURL
     }
 }

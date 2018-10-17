@@ -26,13 +26,14 @@ final class Networker {
     
     
     func postToPublicFirebase(_ spot: Spot) {
+        // Good For Now
         database.collection("public").addDocument(data: [
             "locationName": spot.locationName,
             "description": spot.description,
             "tags": spot.tags,
             "lat": spot.lat,
             "long": spot.long,
-            "photosURL": spot.photosURL
+            "photoURL": spot.photoURL
             ]) { err in
             if let err = err {
                 print("Error writing document: \(err)")
@@ -42,8 +43,24 @@ final class Networker {
         }
     }
     
-    func post(_ spot: Spot) {
-        
+    func postForUser(_ spot: Spot) {
+        if let user = Auth.auth().currentUser {
+            let db = database.collection(user.uid)
+            db.addDocument(data: [
+                "locationName": spot.locationName,
+                "description": spot.description,
+                "tags": spot.tags,
+                "lat": spot.lat,
+                "long": spot.long,
+                "photoURL": spot.photoURL
+            ]) { (error) in
+                if let err = error {
+                    print("Error posting your spot. Please try again. Error: \(err.localizedDescription)")
+                } else {
+                    print("Spot successfully posted.")
+                }
+            }
+        }
     }
     
     func deleteFromFirebase(_ spot: Spot) {

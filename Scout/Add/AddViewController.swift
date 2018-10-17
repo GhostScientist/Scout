@@ -17,6 +17,7 @@ class AddViewController: UIViewController, UIImagePickerControllerDelegate, UINa
     
     @IBOutlet weak var imageView: UIImageView!
     
+    
     let descriptionTextView : UITextView = {
         let t = UITextView()
         t.text = ""
@@ -49,6 +50,7 @@ class AddViewController: UIViewController, UIImagePickerControllerDelegate, UINa
     override func viewDidLoad() {
         super.viewDidLoad()
         imagePicker.delegate = self
+        locationManager.delegate = self
         imageView.layer.cornerRadius = 10.0
         imageView.layer.masksToBounds = true
         descriptionTextView.delegate = self
@@ -205,25 +207,42 @@ class AddViewController: UIViewController, UIImagePickerControllerDelegate, UINa
     }
     
     @objc func postTapped() {
-        print("Post Tapped")
+        let imgManager = ImageManager()
+        if let imageData = imageView.image?.jpegData(compressionQuality: 0.65), let location = locationManager.location {
+            imgManager.upload(imageData) { (url) in
+                let spot = Spot(locationName: "Dummy", description: self.descriptionTextView.text, tags: ["Bussy"], lat: location.coordinate.latitude, long: location.coordinate.longitude, photosURL: url)
+                Networker.shared.postForUser(spot)
+            }
+        }
+        // When user taps post, the details of the location, description, any tags, image URL
+        // will be used to build a spot object to post to Firebase.
+        // User taps post -> Image data is uploaded to Firebase Storage -> Download URL is passed via
+        //      completion handler -> Download URL and other data is used to build a new Spot -> Upload to Firebase
+        
     }
     
 }
 
 extension AddViewController : AVCapturePhotoCaptureDelegate {
     func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
-        let image = photo.fileDataRepresentation()
-        var imgManager = ImageManager()
-        if let imageData = image {
-            imgManager.upload(imageData)
-        }
+//        let image = photo.fileDataRepresentation()
+//        var imgManager = ImageManager()
+//        if let imageData = image {
+//            imgManager.upload(imageData) { (url) in
+//                //Networker.shared.upload
+//            }
+//        }
         
         // FIX: - Use serial queue.
-        let url = imgManager.getURLFor(Storage.storage().reference().child("dummy.jpg"))
-        var spot = Spot(locationName: "Dummy", description: "Dummy", tags: ["Dummy"], lat: (userLocation?.coordinate.latitude)!, long: (userLocation?.coordinate.longitude)!, photosURL: "")
-        print(spot.photosURL)
-        let networker = Networker()
-        networker.postToPublicFirebase(spot)
+//        let url = imgManager.getURLFor(Storage.storage().reference().child("dummy.jpg"))
+//        var spot = Spot(locationName: "Dummy", description: "Dummy", tags: ["Dummy"], lat: (userLocation?.coordinate.latitude)!, long: (userLocation?.coordinate.longitude)!, photosURL: "")
+//        print(spot.photoURL)
+//        let networker = Networker()
+//        networker.postToPublicFirebase(spot)
     }
 
+}
+
+extension AddViewController: CLLocationManagerDelegate {
+    
 }
