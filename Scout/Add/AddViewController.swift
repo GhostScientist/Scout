@@ -11,12 +11,11 @@ import AVFoundation
 import CoreLocation
 import Firebase
 
-class AddViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextViewDelegate {
+class AddViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextViewDelegate, CLLocationManagerDelegate {
     
     // MARK: - IB Outlets
     
     @IBOutlet weak var imageView: UIImageView!
-    
     
     let descriptionTextView : UITextView = {
         let t = UITextView()
@@ -44,6 +43,7 @@ class AddViewController: UIViewController, UIImagePickerControllerDelegate, UINa
     var videoPreviewLayer: AVCaptureVideoPreviewLayer?
     var capturePhotoOuput: AVCapturePhotoOutput?
     var locationManager = CLLocationManager()
+    let geocoder = CLGeocoder()
     var userLocation: CLLocation?
     let imagePicker = UIImagePickerController()
 
@@ -51,10 +51,7 @@ class AddViewController: UIViewController, UIImagePickerControllerDelegate, UINa
         super.viewDidLoad()
         imagePicker.delegate = self
         locationManager.delegate = self
-        imageView.layer.cornerRadius = 10.0
-        imageView.layer.masksToBounds = true
         descriptionTextView.delegate = self
-        imageView.image = UIImage(named: "camera")
         
         capturePhotoOuput = AVCapturePhotoOutput()
         capturePhotoOuput?.isHighResolutionCaptureEnabled = true
@@ -83,25 +80,10 @@ class AddViewController: UIViewController, UIImagePickerControllerDelegate, UINa
         captureSession?.startRunning()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-    
-    
-    
     func setupUI() {
         setupImageView()
         tapToSelectPhotographMethod()
     }
-
-    
     
     func tapToSelectPhotographMethod() {
         let tap = UITapGestureRecognizer(target: self, action: #selector(AddViewController.presentChoices))
@@ -130,18 +112,19 @@ class AddViewController: UIViewController, UIImagePickerControllerDelegate, UINa
             }
         }
         let cancelAction = UIAlertAction(title: "Cancel", style: .destructive, handler: nil)
-        ac.addAction(cancelAction)
         ac.addAction(choosePhotoAction)
         ac.addAction(takePhotoAction)
+        ac.addAction(cancelAction)
         present(ac, animated: true)
     }
     
     
     func setupImageView() {
+        imageView.layer.cornerRadius = 10.0
+        imageView.layer.masksToBounds = true
+        imageView.image = UIImage(named: "camera")
         imageView.anchors(top: view.safeAreaLayoutGuide.topAnchor, topPad: 24, bottom: nil, bottomPad: 0, left: view.leftAnchor, leftPad: 12, right: view.rightAnchor, rightPad: 12, height: 4 * (view.frame.height / 7), width: 0)
     }
-    
-
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let chosenImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
@@ -159,37 +142,11 @@ class AddViewController: UIViewController, UIImagePickerControllerDelegate, UINa
         dismiss(animated: true, completion: nil)
     }
     
-    @objc func takePhotoTapped() {
-        print("Hello, take photo tapped.")
-        // Push a camera view onto the Nav controller stack.
-        do {
-            try Auth.auth().signOut()
-            print("Signed out.")
-            let appDelegate = UIApplication.shared.delegate as! AppDelegate
-            let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
-            let onboardingVC = mainStoryboard.instantiateViewController(withIdentifier: "Onboarding")
-            appDelegate.window = UIWindow(frame: UIScreen.main.bounds)
-            appDelegate.window?.makeKeyAndVisible()
-            appDelegate.window?.rootViewController = onboardingVC
-        } catch {
-            print("Error logging out.")
-        }
-    }
-    
-    func textViewDidBeginEditing(_ textView: UITextView) {
-        //textView.translatesAutoresizingMaskIntoConstraints = true
-        //textView.sizeToFit()
-    }
-    
     func textViewDidEndEditing(_ textView: UITextView) {
         view.addSubview(postButton)
         postButton.layer.cornerRadius = 10.0
         postButton.anchors(top: descriptionTextView.bottomAnchor, topPad: 8, bottom: nil, bottomPad: 0, left: descriptionTextView.leftAnchor, leftPad: 20, right: descriptionTextView.rightAnchor, rightPad: 20, height: 50, width: 0)
        
-    }
-    
-    func textViewDidChange(_ textView: UITextView) {
-        //textView.sizeToFit()
     }
     
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
@@ -210,8 +167,21 @@ class AddViewController: UIViewController, UIImagePickerControllerDelegate, UINa
         let imgManager = ImageManager()
         if let imageData = imageView.image?.jpegData(compressionQuality: 0.65), let location = locationManager.location {
             imgManager.upload(imageData) { (url) in
-                let spot = Spot(locationName: "Dummy", description: self.descriptionTextView.text, tags: ["Bussy"], lat: location.coordinate.latitude, long: location.coordinate.longitude, photosURL: url)
-                Networker.shared.postForUser(spot)
+                self.geocoder.reverseGeocodeLocation(location, completionHandler: { (placemarks, error) in
+                    if error == nil {
+                        if let placeMark = placemarks?[0] {
+                            // TODO: - Implement tags, activity indicator, bring user back to Map view.
+                            let spot = Spot(locationName: placeMark.name!, description: self.descriptionTextView.text, tags: ["Bussy"], lat: location.coordinate.latitude, long: location.coordinate.longitude, photosURL: url)
+                            Networker.shared.postForUser(spot)
+                            Networker.shared.postToPublicFirebase(spot)
+                        }
+                    } else {
+                        let spot = Spot(locationName: "Location Name Unavailable", description: self.descriptionTextView.text, tags: ["Bussy"], lat: location.coordinate.latitude, long: location.coordinate.longitude, photosURL: url)
+                        Networker.shared.postForUser(spot)
+                        Networker.shared.postToPublicFirebase(spot)
+                        print("An error occured during geocoding. Spot still being uploaded.")
+                    }
+                })
             }
         }
         // When user taps post, the details of the location, description, any tags, image URL
@@ -220,29 +190,4 @@ class AddViewController: UIViewController, UIImagePickerControllerDelegate, UINa
         //      completion handler -> Download URL and other data is used to build a new Spot -> Upload to Firebase
         
     }
-    
-}
-
-extension AddViewController : AVCapturePhotoCaptureDelegate {
-    func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
-//        let image = photo.fileDataRepresentation()
-//        var imgManager = ImageManager()
-//        if let imageData = image {
-//            imgManager.upload(imageData) { (url) in
-//                //Networker.shared.upload
-//            }
-//        }
-        
-        // FIX: - Use serial queue.
-//        let url = imgManager.getURLFor(Storage.storage().reference().child("dummy.jpg"))
-//        var spot = Spot(locationName: "Dummy", description: "Dummy", tags: ["Dummy"], lat: (userLocation?.coordinate.latitude)!, long: (userLocation?.coordinate.longitude)!, photosURL: "")
-//        print(spot.photoURL)
-//        let networker = Networker()
-//        networker.postToPublicFirebase(spot)
-    }
-
-}
-
-extension AddViewController: CLLocationManagerDelegate {
-    
 }
