@@ -9,31 +9,10 @@
 /* Begin PBXBuildFile section */
 		CF05BC4568906BD4ABA47930 /* Pods_Scout.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2772C2A2DA50B8D630ACEDA9 /* Pods_Scout.framework */; };
 		D30576D72158085400BE0AED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30576D62158085400BE0AED /* AppDelegate.swift */; };
-		D30576D92158085400BE0AED /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30576D82158085400BE0AED /* MapViewController.swift */; };
-		D30576DB2158085400BE0AED /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30576DA2158085400BE0AED /* SearchViewController.swift */; };
 		D30576DE2158085400BE0AED /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D30576DC2158085400BE0AED /* Main.storyboard */; };
 		D30576E02158085F00BE0AED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D30576DF2158085F00BE0AED /* Assets.xcassets */; };
 		D30576E32158085F00BE0AED /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D30576E12158085F00BE0AED /* LaunchScreen.storyboard */; };
-		D30576F12158114300BE0AED /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30576F02158114300BE0AED /* AddViewController.swift */; };
-		D30576F5215812D100BE0AED /* ScoutedCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30576F4215812D100BE0AED /* ScoutedCollectionViewController.swift */; };
-		D30576F8215812ED00BE0AED /* Networker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30576F7215812ED00BE0AED /* Networker.swift */; };
 		D30576FA2158181200BE0AED /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D30576F92158181200BE0AED /* GoogleService-Info.plist */; };
-		D3087938217247E900E90752 /* ScoutedCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3087936217247E900E90752 /* ScoutedCollectionViewCell.swift */; };
-		D3087939217247E900E90752 /* ScoutedCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3087937217247E900E90752 /* ScoutedCollectionViewCell.xib */; };
-		D308793C2172481200E90752 /* ProjectContentCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D308793A2172481200E90752 /* ProjectContentCollectionViewCell.swift */; };
-		D308793D2172481200E90752 /* ProjectContentCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D308793B2172481200E90752 /* ProjectContentCollectionViewCell.xib */; };
-		D30879402172483900E90752 /* SearchResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D308793E2172483900E90752 /* SearchResultTableViewCell.swift */; };
-		D30879412172483900E90752 /* SearchResultTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D308793F2172483900E90752 /* SearchResultTableViewCell.xib */; };
-		D30C5C08215B8C800087B245 /* Spot.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30C5C07215B8C800087B245 /* Spot.swift */; };
-		D30C5C0B215B90050087B245 /* OnboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30C5C0A215B90050087B245 /* OnboardViewController.swift */; };
-		D30C5C0F215BA3580087B245 /* ProjectsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30C5C0E215BA3580087B245 /* ProjectsTableViewController.swift */; };
-		D30C5C11215BA4670087B245 /* ProjectsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30C5C10215BA4670087B245 /* ProjectsTableViewCell.swift */; };
-		D30C5C13215BAD740087B245 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30C5C12215BAD740087B245 /* Helper.swift */; };
-		D34E5ED6215F5C1200432DB1 /* ImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34E5ED5215F5C1200432DB1 /* ImageManager.swift */; };
-		D36CE7F42162EDD5008C0D7A /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36CE7F32162EDD5008C0D7A /* Project.swift */; };
-		D372C1D5216F8E4D00A69B2D /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D372C1D4216F8E4D00A69B2D /* RegistrationViewController.swift */; };
-		D3E673942167A05900A146EE /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E673932167A05900A146EE /* ViewExtension.swift */; };
-		D3F0082F21712585006E0655 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F0082E21712585006E0655 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,32 +20,11 @@
 		5EF7888B782C92FFAE6E2B02 /* Pods-Scout.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Scout.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Scout/Pods-Scout.debug.xcconfig"; sourceTree = "<group>"; };
 		D30576D32158085400BE0AED /* Scout.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Scout.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D30576D62158085400BE0AED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D30576D82158085400BE0AED /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
-		D30576DA2158085400BE0AED /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		D30576DD2158085400BE0AED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D30576DF2158085F00BE0AED /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D30576E22158085F00BE0AED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D30576E42158085F00BE0AED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D30576F02158114300BE0AED /* AddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
-		D30576F4215812D100BE0AED /* ScoutedCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoutedCollectionViewController.swift; sourceTree = "<group>"; };
-		D30576F7215812ED00BE0AED /* Networker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networker.swift; sourceTree = "<group>"; };
 		D30576F92158181200BE0AED /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		D3087936217247E900E90752 /* ScoutedCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoutedCollectionViewCell.swift; sourceTree = "<group>"; };
-		D3087937217247E900E90752 /* ScoutedCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ScoutedCollectionViewCell.xib; sourceTree = "<group>"; };
-		D308793A2172481200E90752 /* ProjectContentCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectContentCollectionViewCell.swift; sourceTree = "<group>"; };
-		D308793B2172481200E90752 /* ProjectContentCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProjectContentCollectionViewCell.xib; sourceTree = "<group>"; };
-		D308793E2172483900E90752 /* SearchResultTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultTableViewCell.swift; sourceTree = "<group>"; };
-		D308793F2172483900E90752 /* SearchResultTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchResultTableViewCell.xib; sourceTree = "<group>"; };
-		D30C5C07215B8C800087B245 /* Spot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spot.swift; sourceTree = "<group>"; };
-		D30C5C0A215B90050087B245 /* OnboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardViewController.swift; sourceTree = "<group>"; };
-		D30C5C0E215BA3580087B245 /* ProjectsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsTableViewController.swift; sourceTree = "<group>"; };
-		D30C5C10215BA4670087B245 /* ProjectsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProjectsTableViewCell.swift; path = Scout/Projects/Controllers/ProjectsTableViewCell.swift; sourceTree = SOURCE_ROOT; };
-		D30C5C12215BAD740087B245 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
-		D34E5ED5215F5C1200432DB1 /* ImageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageManager.swift; sourceTree = "<group>"; };
-		D36CE7F32162EDD5008C0D7A /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
-		D372C1D4216F8E4D00A69B2D /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
-		D3E673932167A05900A146EE /* ViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtension.swift; sourceTree = "<group>"; };
-		D3F0082E21712585006E0655 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		EF5FCEDB920FA88C3A9DA5EC /* Pods-Scout.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Scout.release.xcconfig"; path = "Pods/Target Support Files/Pods-Scout/Pods-Scout.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -112,66 +70,12 @@
 		D30576D52158085400BE0AED /* Scout */ = {
 			isa = PBXGroup;
 			children = (
-				D3E673922167A04300A146EE /* Extensions */,
-				D30C5C09215B8F330087B245 /* Onboard */,
-				D30C5C06215B8C160087B245 /* Model */,
-				D30576EC21580B1400BE0AED /* Add */,
 				D30576D62158085400BE0AED /* AppDelegate.swift */,
 				D30576F92158181200BE0AED /* GoogleService-Info.plist */,
 				D30576E42158085F00BE0AED /* Info.plist */,
-				D30576EA21580B1000BE0AED /* Map */,
-				D30576F6215812DB00BE0AED /* Networking */,
-				D30576ED21580B1600BE0AED /* Projects */,
-				D30576EE21580B1800BE0AED /* Scouted */,
-				D30576EB21580B1300BE0AED /* Search */,
 				D30576EF21580D4C00BE0AED /* Supporting FIles */,
 			);
 			path = Scout;
-			sourceTree = "<group>";
-		};
-		D30576EA21580B1000BE0AED /* Map */ = {
-			isa = PBXGroup;
-			children = (
-				D30576D82158085400BE0AED /* MapViewController.swift */,
-			);
-			path = Map;
-			sourceTree = "<group>";
-		};
-		D30576EB21580B1300BE0AED /* Search */ = {
-			isa = PBXGroup;
-			children = (
-				D30576DA2158085400BE0AED /* SearchViewController.swift */,
-				D308793E2172483900E90752 /* SearchResultTableViewCell.swift */,
-				D308793F2172483900E90752 /* SearchResultTableViewCell.xib */,
-			);
-			path = Search;
-			sourceTree = "<group>";
-		};
-		D30576EC21580B1400BE0AED /* Add */ = {
-			isa = PBXGroup;
-			children = (
-				D30576F02158114300BE0AED /* AddViewController.swift */,
-			);
-			path = Add;
-			sourceTree = "<group>";
-		};
-		D30576ED21580B1600BE0AED /* Projects */ = {
-			isa = PBXGroup;
-			children = (
-				D36CE7F22162EDB6008C0D7A /* Controllers */,
-				D36CE7F12162EDAA008C0D7A /* Model */,
-			);
-			path = Projects;
-			sourceTree = "<group>";
-		};
-		D30576EE21580B1800BE0AED /* Scouted */ = {
-			isa = PBXGroup;
-			children = (
-				D30576F4215812D100BE0AED /* ScoutedCollectionViewController.swift */,
-				D3087936217247E900E90752 /* ScoutedCollectionViewCell.swift */,
-				D3087937217247E900E90752 /* ScoutedCollectionViewCell.xib */,
-			);
-			path = Scouted;
 			sourceTree = "<group>";
 		};
 		D30576EF21580D4C00BE0AED /* Supporting FIles */ = {
@@ -180,63 +84,8 @@
 				D30576DC2158085400BE0AED /* Main.storyboard */,
 				D30576DF2158085F00BE0AED /* Assets.xcassets */,
 				D30576E12158085F00BE0AED /* LaunchScreen.storyboard */,
-				D30C5C12215BAD740087B245 /* Helper.swift */,
-				D3F0082E21712585006E0655 /* Constants.swift */,
 			);
 			path = "Supporting FIles";
-			sourceTree = "<group>";
-		};
-		D30576F6215812DB00BE0AED /* Networking */ = {
-			isa = PBXGroup;
-			children = (
-				D30576F7215812ED00BE0AED /* Networker.swift */,
-				D34E5ED5215F5C1200432DB1 /* ImageManager.swift */,
-			);
-			path = Networking;
-			sourceTree = "<group>";
-		};
-		D30C5C06215B8C160087B245 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				D30C5C07215B8C800087B245 /* Spot.swift */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		D30C5C09215B8F330087B245 /* Onboard */ = {
-			isa = PBXGroup;
-			children = (
-				D30C5C0A215B90050087B245 /* OnboardViewController.swift */,
-				D372C1D4216F8E4D00A69B2D /* RegistrationViewController.swift */,
-			);
-			path = Onboard;
-			sourceTree = "<group>";
-		};
-		D36CE7F12162EDAA008C0D7A /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				D36CE7F32162EDD5008C0D7A /* Project.swift */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		D36CE7F22162EDB6008C0D7A /* Controllers */ = {
-			isa = PBXGroup;
-			children = (
-				D30C5C0E215BA3580087B245 /* ProjectsTableViewController.swift */,
-				D30C5C10215BA4670087B245 /* ProjectsTableViewCell.swift */,
-				D308793A2172481200E90752 /* ProjectContentCollectionViewCell.swift */,
-				D308793B2172481200E90752 /* ProjectContentCollectionViewCell.xib */,
-			);
-			path = Controllers;
-			sourceTree = "<group>";
-		};
-		D3E673922167A04300A146EE /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				D3E673932167A05900A146EE /* ViewExtension.swift */,
-			);
-			path = Extensions;
 			sourceTree = "<group>";
 		};
 		FDBED509FAD34F1C2C42618F /* Frameworks */ = {
@@ -308,12 +157,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D308793D2172481200E90752 /* ProjectContentCollectionViewCell.xib in Resources */,
 				D30576E32158085F00BE0AED /* LaunchScreen.storyboard in Resources */,
 				D30576FA2158181200BE0AED /* GoogleService-Info.plist in Resources */,
 				D30576E02158085F00BE0AED /* Assets.xcassets in Resources */,
-				D30879412172483900E90752 /* SearchResultTableViewCell.xib in Resources */,
-				D3087939217247E900E90752 /* ScoutedCollectionViewCell.xib in Resources */,
 				D30576DE2158085400BE0AED /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -428,25 +274,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D30576DB2158085400BE0AED /* SearchViewController.swift in Sources */,
-				D30C5C11215BA4670087B245 /* ProjectsTableViewCell.swift in Sources */,
-				D30576F5215812D100BE0AED /* ScoutedCollectionViewController.swift in Sources */,
-				D30C5C08215B8C800087B245 /* Spot.swift in Sources */,
-				D36CE7F42162EDD5008C0D7A /* Project.swift in Sources */,
 				D30576D72158085400BE0AED /* AppDelegate.swift in Sources */,
-				D30C5C0B215B90050087B245 /* OnboardViewController.swift in Sources */,
-				D3F0082F21712585006E0655 /* Constants.swift in Sources */,
-				D308793C2172481200E90752 /* ProjectContentCollectionViewCell.swift in Sources */,
-				D30576F12158114300BE0AED /* AddViewController.swift in Sources */,
-				D30879402172483900E90752 /* SearchResultTableViewCell.swift in Sources */,
-				D30C5C0F215BA3580087B245 /* ProjectsTableViewController.swift in Sources */,
-				D372C1D5216F8E4D00A69B2D /* RegistrationViewController.swift in Sources */,
-				D30576D92158085400BE0AED /* MapViewController.swift in Sources */,
-				D3E673942167A05900A146EE /* ViewExtension.swift in Sources */,
-				D30576F8215812ED00BE0AED /* Networker.swift in Sources */,
-				D30C5C13215BAD740087B245 /* Helper.swift in Sources */,
-				D34E5ED6215F5C1200432DB1 /* ImageManager.swift in Sources */,
-				D3087938217247E900E90752 /* ScoutedCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
